@@ -7,6 +7,7 @@ const { canvas, faceDetectionNet, faceDetectionOptions, saveFile } = require('..
 const router  = express.Router();
 router.get('/',(req,res)=>{  
   res.render('train');  
+  console.log(res);
 });
 router.get('/model',(req,res)=>{
   const modelState = require('../model.json');

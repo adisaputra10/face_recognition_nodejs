@@ -4,6 +4,17 @@ var routes     = require('./routes/routes.js');
 var path       = require('path');
 var http       = require('http');
 
+// rest upload file 3rd party lib <- jgn lp install/ unduh
+var multer     = require('multer');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/temp/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+const upload = multer({storage: storage})
 
 var app = express();
 
@@ -18,6 +29,16 @@ app.use('/',routes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 var server = http.createServer(app);
+
+
+// pakek instance app exisiting atau export module baru
+app.post('/uploadfile', upload.single('photo'), (req, res) => {
+  if(req.file) {
+      res.json(req.file);
+  }
+  else throw 'error';
+});
+
 
 server.listen(2000,function(){
   console.log('Server Started on Port 2000 ...');

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EXAMPLE UPLOAD TEST</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css"href="styles/index.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- NavBar Begins -->
+    <nav class="navbar navbar-inverse navbar-fixed-top ">
+      <div class="container">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand navhead" href="#">EXAMPLE UPLOAD TEST</a>
+        </div>
+        <ul class="nav navbar-nav collapse navbar-collapse  "id="myNavbar">
+          <li ><a href="/">Home</a></li>
+          <li><a href="/training">Train Classifier</a></li>
+          <li class="active"><a href="/example">Example</a></li>
+          <li><a href="#">Why us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+<!-- Navbar Ends  -->
+
+<!-- Image Upload Begins -->
+    <div class="container">
+      <div class="row">        
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <div class="container">
+                <h4 class="panel-titl">Example Upload</h4>
+            </div>
+          </div>
+          <div class="container">
+            <div class="card border-success mt-5">
+                <div class="card-body">
+                    <div class="col-lg-4 col-md-4">
+                        <br/>
+                        <h4 class="card-header">Upload Files</h4>
+                        <div class="form-group">
+                          <form action="/uploadfile" method="post" enctype="multipart/form-data">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-default btn-file">
+                                            Browse… <input class="form-control-file" type="file" accept="image/*" name="photo">
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" readonly>
+                                </div>
+                                <br/>
+                                <input class="btn mt-3" type="submit" value="upload">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+<!-- Image Upload Ends -->
+<!--  Loader Modal Start-->
+<div class="modal fade" id="Loader" tabindex="-1" role="dialog"  aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+          <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif"width="50%"height="50%" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<!--  Loader Modal Ends-->
+  </body>
+</html>
+
+<!-- Upload Image js -->
+<script src="js/uploadClient.js"></script>
+<!-- Socket io -->
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+var socket = io();
+
+function UploadToNodeServer(){
+  var buf=$('#img-upload').attr('src');
+  socket.emit('imageUpload',{ image: true, buffer: buf ,format:sessionStorage.getItem('format'),role:'Recognize' });
+  // $('#upldbtn').addClass('disabled');
+  $('#upldbtn').attr('disabled','');
+}
+
+socket.on('UploadSuccess',function(msg){
+  if(msg==='true'){
+    alert("Image Uploaded Successfully");
+    $('#recognizeBlock').css('visibility','visible');
+  }
+  else{
+    alert("Error Unable to  Uploaded Image");
+    // $('#upldbtn').removeClass('disabled');
+    $('#upldbtn').removeAttr('disabled');
+  }
+});
+function compare(a,b) {
+  if (a.distance < b.distance)
+  return -1;
+  if (a.distance > b.distance)
+  return 1;
+  return 0;
+}
+function Recognize(){
+  $.ajax({url: "/recognize", success: function(result){
+        setTimeout(function(){callback(result,'success');},2000);
+      },
+      error: function(errorMsg){
+        setTimeout(function(){callback(errorMsg,'failure');},2000);
+      }
+    });
+    $('#Loader').modal({backdrop:'static'},'show');
+}
+
+function callback(result,status){
+  $('#Loader').modal('hide');
+  if(status==='success'){
+    result.sort(compare);
+    $('#tble').css('visibility','visible');
+    $('#tableData').html("<tr><th>Actor</th><th>Probability</th></tr>");
+    console.log(result);
+    for(var i=0;i<result.length;i++){
+      if(i==0)
+      $('#tableData').append("<tr class='success'>"+
+      "<td>"+result[i].className+"</td>"+
+      "<td>"+(Math.round((1-result[i].distance)*100))+"%"+"</td>"+
+      "</tr>");
+      else
+      $('#tableData').append("<tr>"+
+      "<td>"+result[i].className+"</td>"+
+      "<td>"+(Math.round((1-result[i].distance)*100))+"%"+"</td>"+
+      "</tr>");
+    }
+    window.open('/output.html','targetWindow','toolbar=no,location=no,status=no,scrollbars=yes,resizable=yes,width=500,height=500');
+  }
+  else{
+    console.log(result);
+    alert(result.responseJSON.msg);
+  }
+}
+</script>
