@@ -68,12 +68,7 @@
                         <div class="form-group">
                           <form action="/uploadfile" method="post" enctype="multipart/form-data">
                                 <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <span class="btn btn-default btn-file">
-                                            Browse… <input class="form-control-file" type="file" accept="image/*" name="photo">
-                                        </span>
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
+                                    <input class="form-control-file" type="file" accept="image/*" name="photo" multiple>
                                 </div>
                                 <br/>
                                 <input class="btn mt-3" type="submit" value="upload">

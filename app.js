@@ -6,6 +6,9 @@ var http       = require('http');
 
 // rest upload file 3rd party lib <- jgn lp install/ unduh
 var multer     = require('multer');
+
+var app = express();
+app.use(bodyparser.urlencoded({extended:true}))
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, __dirname + '/temp/uploads')
@@ -14,13 +17,10 @@ const storage = multer.diskStorage({
     cb(null, file.originalname)
   }
 })
-const upload = multer({storage: storage})
+var upload = multer({storage: storage})
 
-var app = express();
 
-/*
-Express Server Configurations
-*/
+
 app.set('views',path.join(__dirname,'views'));
 app.engine('html',require('ejs').renderFile);
 app.set('view engine','html');
@@ -31,12 +31,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 var server = http.createServer(app);
 
 
-// pakek instance app exisiting atau export module baru
-app.post('/uploadfile', upload.single('photo'), (req, res) => {
-  if(req.file) {
-      res.json(req.file);
+// pakek instance app exisiting atau export module baru (yang baru sudah support multiple files)
+app.post("/uploadfile", upload.array('photo', 12), (req, res, next) => {
+  const files = req.files;
+  if(!files){
+    return next(error)
+  }else{
+    res.send(files);
   }
-  else throw 'error';
 });
 
 
