@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "cordova-plugin-camera-preview": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-camera-preview": {
+        "ANDROID_SUPPORT_LIBRARY_VERSION": "26+"
+      }
+    },
+    "platforms": [
+      "android",
+      "browser"
+    ]
+  },
+  "dependencies": {
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-camera-preview": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git"
+  }
+}

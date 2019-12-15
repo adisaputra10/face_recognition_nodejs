@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "cordova-plugin-camera-sample-app",
+  "short_name": "cordova-plugin-camera-sample-app",
+  "version": "com.cordovaplugincamerapreview.sampleapp",
+  "description": "A sample Cordova application for cordova-plugin-camera-preview.",
+  "author": "Sample App",
+  "icons": [],
+  "start_url": "index.html"
+}
