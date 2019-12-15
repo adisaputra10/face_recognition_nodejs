@@ -1,0 +1,50 @@
+{
+  "_from": "cordova-plugin-save-to-camera-roll",
+  "_id": "cordova-plugin-save-to-camera-roll@3.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-ux76WzmBeblvJB2TMv7xbkUUpcd3X7GHPVc2kzByZ075Av3ZnONmyJ7MXsfVyWgMb0Cs1fFtBFSbJ3Qv768zVQ==",
+  "_location": "/cordova-plugin-save-to-camera-roll",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-save-to-camera-roll",
+    "name": "cordova-plugin-save-to-camera-roll",
+    "escapedName": "cordova-plugin-save-to-camera-roll",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-save-to-camera-roll/-/cordova-plugin-save-to-camera-roll-3.0.0.tgz",
+  "_shasum": "0ba1517e980f545f192fc23a97d28ea26e586f80",
+  "_spec": "cordova-plugin-save-to-camera-roll",
+  "_where": "/usr/local/lib/node_modules/cordova/bin/sampleapp",
+  "bugs": {
+    "url": "https://github.com/mattlewis92/cordova-plugin-photo-library/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Cordova plugin that saves images and videos to the ios camera ",
+  "devDependencies": {
+    "@types/cordova": "^0.0.34",
+    "@types/jasmine": "^2.5.41",
+    "blueimp-canvastoblob": "2.1.0",
+    "cordova-paramedic": "git+https://github.com/apache/cordova-paramedic.git",
+    "es5-shim": "4.5.9",
+    "es6-shim": "0.35.3",
+    "es7-shim": "6.0.0",
+    "eslint": "^3.14.1"
+  },
+  "homepage": "https://github.com/mattlewis92/cordova-plugin-photo-library#readme",
+  "license": "MIT",
+  "name": "cordova-plugin-save-to-camera-roll",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattlewis92/cordova-plugin-photo-library.git"
+  },
+  "version": "3.0.0"
+}

@@ -1,0 +1,28 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "io.onsen.sampleapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.onsen.sampleapp"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.onsen.sampleapp"
+    },
+    "cordova-plugin-save-image": {
+      "PACKAGE_NAME": "io.onsen.sampleapp"
+    },
+    "cordova-plugin-save-to-camera-roll": {
+      "PACKAGE_NAME": "io.onsen.sampleapp"
+    }
+  },
+  "dependent_plugins": {}
+}
