@@ -3,6 +3,8 @@ var bodyparser = require('body-parser');
 var routes     = require('./routes/routes.js');
 var path       = require('path');
 var http       = require('http');
+var fs = require('fs');
+var mime = require('mime');
 
 // rest upload file 3rd party lib <- jgn lp install/ unduh
 var multer     = require('multer');
@@ -40,6 +42,31 @@ app.post("/uploadfile", upload.array('photo', 12), (req, res, next) => {
     res.send(files);
   }
 });
+
+app.post("/uploadimage", async (req, res, next) => {
+    // to declare some path to store your converted image
+    var matches = req.body.base64image.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+    response = {};
+
+    if (matches.length !== 3) {
+      return new Error('Invalid input string');
+    }
+
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+    let decodedImg = response;
+    let imageBuffer = decodedImg.data;
+    let type = decodedImg.type;
+    let extension = mime.extension(type);
+    let fileName =  "image." + extension;
+    try {
+      fs.writeFileSync("./temp/uploads/" + fileName, imageBuffer, 'utf8');
+      return res.send({"status":"success"});
+    } catch (e) {
+      next(e);
+    }
+    }
+);
 
 
 server.listen(2000,function(){
