@@ -46,6 +46,8 @@ app.post("/uploadfile", upload.array('photo', 12), (req, res, next) => {
 
 // upload base 64 controller uploadimage from mobile
 app.post("/uploadimage", async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     // to declare some path to store your converted image
     var matches = req.body.base64image.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
     response = {};
