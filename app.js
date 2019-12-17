@@ -35,6 +35,8 @@ var server = http.createServer(app);
 
 // pakek instance app exisiting atau export module baru (yang baru sudah support multiple files)
 app.post("/uploadfile", upload.array('photo', 12), (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   const files = req.files;
   if(!files){
     return next(error)
@@ -61,8 +63,9 @@ app.post("/uploadimage", async (req, res, next) => {
     let decodedImg = response;
     let imageBuffer = decodedImg.data;
     let type = decodedImg.type;
+    let date = new Date();
     let extension = mime.extension(type);
-    let fileName =  "image." + extension;
+    let fileName =  "image_"+date.getTime()+ "." + extension;
     try {
       fs.writeFileSync("./temp/uploads/" + fileName, imageBuffer, 'utf8');
       return res.send({"status":"success"});
