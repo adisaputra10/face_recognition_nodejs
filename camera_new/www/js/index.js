@@ -16,7 +16,22 @@ var app = {
     CameraPreview.takePicture(function(imgData){
      // alert(imgData)
       document.getElementById('originalPicture').src = 'data:image/jpeg;base64,' + imgData;
-      
+       // get_image = $('#originalPicture').attr('src');
+              // alert($('#originalPicture').attr('src'))
+              // $.ajax({
+              //   url : 'http://192.168.100.20:2000/uploadimage',
+              //   // url : 'http://apiext.scafol.id/api/users?user_id=237',
+              //   type : 'POST',
+              //   data : {
+              //     base64image : get_image
+              //   },
+              //   success : function(resp){
+              //     alert('sukses')
+              //   },
+              //   error: function (request, status, error) {
+              //       alert('error');
+              //   }
+              // });
     });
 
   },

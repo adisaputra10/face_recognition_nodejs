@@ -2,8 +2,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://onlinebelajar.net"> -->
     <title>Camera</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="controls">
@@ -16,13 +18,37 @@
         <button id="switchCameraButton">Switch Camera</button>
       </div>
     </div>
-
     <div class="pictures">
-      <p><img id="originalPicture" width="200"/></p>
+      <img id="originalPicture" width="200"/>
     </div>
+    <button id="simpanfoto">Simpan foto</button>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="CameraPreview.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script>
+      $('document').ready(function(){
+          $('#simpanfoto').on('click', function(){
+              get_image = $('#originalPicture').attr('src');
+              alert($('#originalPicture').attr('src'))
+              $.ajax({
+                // url : 'http://192.168.100.20:2000/uploadimage',
+                // url : 'http://34.70.135.128:2000/uploadimage',
+                url : 'https://onlinebelajar.net/uploadimage',
+                // url : 'http://apiext.scafol.id/api/users?user_id=237',
+                type : 'POST',
+                data : {
+                  base64image : get_image
+                },
+                success : function(resp){
+                  alert('sukses')
+                },
+                error: function (request, status, error) {
+                    alert('error');
+                }
+              });
+          });
+      });
+    </script>
   </body>
 </html>
