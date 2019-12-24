@@ -8,6 +8,9 @@ var mime = require('mime');
 
 const mysql = require('mysql');
 
+///
+var shell = require('shelljs');
+
 //
 //create database connection
 const conn = mysql.createConnection({
@@ -67,6 +70,8 @@ var server = http.createServer(app);
 
 app.get('/listImage',(req, res) => {
   let sql = "SELECT * FROM image";
+
+  shell.echo('Sorry, this script requires git');
   let query = conn.query(sql, (err, results) => {
     if(err) throw err;
     res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
