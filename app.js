@@ -6,6 +6,26 @@ var http       = require('http');
 var fs = require('fs');
 var mime = require('mime');
 
+const mysql = require('mysql');
+
+//
+//create database connection
+const conn = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password123',
+  database: 'nodejs'
+});
+ 
+//connect to database
+conn.connect((err) =>{
+  if(err) throw err;
+  console.log('Mysql Connected...');
+});
+
+
+
+//
 // rest upload file 3rd party lib <- jgn lp install/ unduh
 var multer     = require('multer');
 
@@ -32,6 +52,34 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var server = http.createServer(app);
 
+
+/// read database images
+
+app.get('/listImage',(req, res) => {
+  let sql = "SELECT * FROM image";
+  let query = conn.query(sql, (err, results) => {
+    if(err) throw err;
+    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+  });
+});
+
+// insert database images
+
+//Tambahkan data product baru
+app.post('/image/insert',(req, res) => {
+  let data = {name: req.body.name, base64: req.body.base64};
+  let sql = "INSERT INTO image SET ?";
+  let query = conn.query(sql, data,(err, results) => {
+    if(err) throw err;
+    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+  });
+});
+ 
+
+
+
+
+////
 
 // pakek instance app exisiting atau export module baru (yang baru sudah support multiple files)
 app.post("/uploadfile", upload.array('photo', 12), (req, res, next) => {
