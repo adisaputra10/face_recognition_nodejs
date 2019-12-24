@@ -30,7 +30,10 @@ conn.connect((err) =>{
 var multer     = require('multer');
 
 var app = express();
-app.use(bodyparser.urlencoded({extended:true}))
+//app.use(bodyparser.urlencoded({extended:true}))
+app.use(bodyparser.urlencoded({limit: '50mb', extended: true}));
+
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, __dirname + '/temp/uploads')
@@ -46,7 +49,14 @@ var upload = multer({storage: storage})
 app.set('views',path.join(__dirname,'views'));
 app.engine('html',require('ejs').renderFile);
 app.set('view engine','html');
-app.use(bodyparser.json());
+//app.use(bodyparser.json());
+
+app.use(bodyparser.json({limit: '50mb'}));
+//app.use(bodyparser.urlencoded({limit: '50mb', extended: true}));
+
+
+
+
 app.use('/',routes);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -108,7 +118,9 @@ app.post("/uploadimage", async (req, res, next) => {
     let imageBuffer = decodedImg.data;
     let type = decodedImg.type;
     let extension = mime.extension(type);
-    let fileName =  "image." + extension;
+    let date = new Date();
+//    let fileName =  "image." + extension;
+    let fileName =  "image_"+date.getTime()+ "." + extension;
     try {
       fs.writeFileSync("./temp/uploads/" + fileName, imageBuffer, 'utf8');
       return res.send({"status":"success"});
