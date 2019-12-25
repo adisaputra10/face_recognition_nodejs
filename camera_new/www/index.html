@@ -1,54 +1,876 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://onlinebelajar.net"> -->
-    <title>Camera</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <div class="controls">
-      <div class="block">
-        <button id="startCameraAboveButton">Start Camera Above HTML</button>
-        <button id="stopCameraButton">Stop Camera</button>
-      </div>
-      <div class="block">
-        <button id="takePictureButton">Take Picture</button>
-        <button id="switchCameraButton">Switch Camera</button>
-      </div>
-    </div>
-    <div class="pictures">
-      <img id="originalPicture" width="200"/>
-    </div>
-    <button id="simpanfoto">Simpan foto</button>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="CameraPreview.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content= "width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Govcek</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jquery.spin.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Custom styles for this template -->
+  <link href="css/sidebar.css" rel="stylesheet">
+
+
+
+   <!-- Camera-->
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="CameraPreview.js"></script>
+  <script type="text/javascript" src="js/camera.js"></script>
+
+<!-- Camera-->
+
+
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+    <!-- <div class="spin" data-spin style="margin: 50% auto auto auto; display: none;"/>5 -->
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">EPTW</div>
+      <div class="list-group list-group-flush">
+            <a href="index.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">Home</a>
+            <a href="home.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">EPTW List</a>
+            <a href="home.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">Risk assessment</a>
+          <a href="loto.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">LOTO</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light menu" id="submit_logout">Logout</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="main_nav">
+            <!-- <button class="btn btn-primary" id="menu-toggle">Menu</button><span style="font-weight:bold;">&nbsp;</span> -->
+            <i class="fa fa-bars" id="menu-toggle"></i>
+            <button style="display:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <span id="govceklogo">Govcek</span>
+            <input type="text" id="search_list" class="search_input" placeholder="Cari Item">
+            <i class="fa fa-search search_all"></i>
+            <span id="save" class="text-primary">Save</span>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+                </li>
+            </ul>
+            </div>
+        </nav>
+        
+      <!-- --------------------------------------------------------- -->
+
+        <section class="" id="content_front" style="display: none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card-body">
+                            <br/>
+                            <h1 class="text-center font-weight-bold">EPTW</h1>
+                            <h4 class="card-title text-center text-primary">Login</h4>
+                            <br/>
+                            <br/>
+                            <!-- <form class="form-signin"> -->
+                            <div class="form-label-group">
+                                <label for="inputEmail" class="thisfontblack">Username</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" id="inputEmail" class="form-control thisfontblack" placeholder="Username">
+                                <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                        required autofocus> -->
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Password</label>
+                                <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                        required> -->
+                                <input type="password" id="inputPassword" class="form-control thisfontblack" placeholder="Password">
+                            </div>
+                            <br />
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack" id="submit_login" style="padding: 10px;">Sign
+                                in</button>
+                            <hr class="my-4">
+                       
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------------- -->
+
+        <section class="" id="content_front_register" style="display:none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center thisfont">Daftar</h5>
+                            <!-- <form class="form-signin"> -->
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="inputEmail" class="thisfontblack">First Name</label>
+                                        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="reg_firstname" class="form-control thisfontblack" placeholder="First Name">
+                                    </div>
+                                    <div class="col">
+                                        <label for="inputEmail" class="thisfontblack">Last Name</label>
+                                        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="ematextl" id="reg_lastname" class="form-control thisfontblack" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-label-group"  style="margin-top:10px;">
+                                <label for="inputEmail" class="thisfontblack">Username</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="reg_username" class="form-control thisfontblack" placeholder="Username">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Company Name</label>
+                                <input type="text" id="reg_companyname" class="form-control thisfontblack" placeholder="Company Name">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Email Address</label>
+                                <input type="text" id="reg_email" class="form-control thisfontblack" placeholder="Email Address">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Password</label>
+                                <input type="text" id="reg_password" class="form-control thisfontblack" placeholder="Password">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Confirmation Password</label>
+                                <input type="text" id="reg_conf_password" class="form-control thisfontblack" placeholder="Confirmation Password">
+                            </div>
+                            <br/>
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack" id="submit_register" style="padding: 10px;">Sign Up
+                                </button>
+                                <br/>
+                            <h5 class="card-title text-center thisfont goto_login"><i class="fa fa-caret-left"></i> Kembali ke Login</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------------- -->
+
+        <section class="" id="content2" style="display: none;margin-bottom:0px;">
+            <div class=" container main_container">
+                <div class="main_wrapper form_inspection" id="wrapper_1">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">End User/ Third Party</label>
+                            <select class="form-control end_users" id="label_enduser_1">
+                                <option value="">-- Please Select End Users --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">Inspector</label>
+                            <select class="form-control inspectors" id="label_inspector_1">
+                                <option value="">-- Please Select Inspector --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">Product Category</label>
+                            <select class="form-control product_category" id="label_prodcat_1">
+                                <option value="">-- Please Select Product Category --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">Schedule Date</label>
+                            <input type="date" class="form-control" id="label_schedule_1" placeholder="mm/dd/yyyy" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">Inspection Date</label>
+                            <input type="date" class="form-control" id="label_inspectdate_1" placeholder="mm/dd/yyyy"
+                                value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">Rep No.</label>
+                            <input type="text" class="form-control" id="label_rep_1" placeholder="Please type of Rep No." value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">Status</label>
+                            <select class="form-control status" id="label_status_1">
+                                <option value="">-- Please Select Status --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="thisfontblack">Invoice Number</label>
+                            <input type="text" class="form-control" id="label_invoicenum_1" placeholder="Please type of Invoice No." value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <label class="thisfontblack">Remark</label>
+                                <textarea placeholder="Please type of Remark." class="form-control" id="label_remark_1" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </form> -->
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <button type="button" id="add_multiple"
+                                class="btn btn-outline-primary btn-block thisfontblack">Tambah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------------- -->
+
+        <section class="" id="content3" style="display: none;margin-bottom:0px;">
+                <div class=" container main_container">
+                    <div class="main_wrapper" id="wrapper_0">
+                        <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Inspection Schedule</li>
+                            </ol>
+                        </nav>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label class="thisfontblack">Inspection Date</label>
+                                <input type="date" class="form-control" id="label_inspect_sch_date" placeholder="mm/dd/yyyy"
+                                value="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Location</label>
+                                <select class="form-control location" id="label_inspect_sch_location" >
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Inspector</label>
+                                <select class="form-control inspectors" id="label_inspect_sch_inspectors">
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Appearance & Cleanliness satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="optradio1" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio1">No
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Tag / illegible Marking found satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio2" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio2">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Controllers / Pendants condition & fuction sa</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio3" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio3">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Motor Trains</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio4" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio4">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Long Travel Rails / Rollers</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio5" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio5">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Anchor / End - Stopper / Buffer</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio6" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio6">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Brakes System found satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio7" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio7">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Parking System</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio8" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio8">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Beam Girder / End Carriage</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio9" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio9">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">ELectrical Power Supply Satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio10" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio10">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Hydraulic System</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio11" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio11">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Trolley Satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio12" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio12">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Wire Ropes</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio13" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio13">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Chains</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio14" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio14">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Pulley and Sheaves</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio15" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio15">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Drums</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio16" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio16">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Direction Limit Switch</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio17" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio17">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Upper and Lower Limit</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio18" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio18">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Anti Collision Device</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio19" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio19">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Function Satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio20" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio20">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Safety Device Satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio21" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio21">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Warning Device</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio22" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio22">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Fire Extinguisher Fix and Valid</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio23" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio23">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Lighting System</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio24" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio24">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Maintenance Periodically</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio25" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio25">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Supporting Structures</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio26" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio26">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Over Load Limit</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio27" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio27">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="" class="thisfontblack">Load Test Satisfactory</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio28" checked>Yes
+                                    </label>
+                                    <label class="form-check-label" style="margin-left: 20px;">
+                                        <input type="radio" class="form-check-input" name="optradio28">No
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                </div>
+                <div class="container" style="margin-top:10px;">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <button type="button" id="add_multiple"
+                                    class="btn btn-outline-primary btn-block thisfontblack">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        
+        <!-- --------------------------------------------------------- -->
+
+        <section id="content1" style="display: none;">
+            <div class="container wrapper_list">
+<br><br><br>  <br><br><br>  <br><br><br>  <br><br><br> <br>     
+      
+<button id="gps">gps</button>
+<p id="geolocation">Finding geolocation...</p>
+
+
+
+            </div>
+        </section>
+
+        <section id="content4" style="display: none;">
+            <div class="container wrapper_list">
+                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Master Product List</li>
+                    </ol>
+                </nav>
+                <div class="container">
+                    <div class="row">
+                        <div class="list-group wrapper_list_two" style="height: auto;">
+                            <!-- list generat via javascript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------------- -->
+
+
+    </div>
+  </div>
+  <!-- /#wrapper -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/inspection.js"></script>
+    <script src="js/masterproduct.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery.spin.js"></script>
     <script>
-      $('document').ready(function(){
-          $('#simpanfoto').on('click', function(){
-              get_image = $('#originalPicture').attr('src');
-              alert($('#originalPicture').attr('src'))
-              $.ajax({
-                // url : 'http://192.168.100.20:2000/uploadimage',
-                // url : 'http://34.70.135.128:2000/uploadimage',
-                url : 'https://onlinebelajar.net/uploadimage',
-                // url : 'http://apiext.scafol.id/api/users?user_id=237',
-                type : 'POST',
-                data : {
-                  base64image : get_image
-                },
-                success : function(resp){
-                  alert('sukses')
-                },
-                error: function (request, status, error) {
-                    alert('error');
-                }
-              });
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        $('.menu').click(function(){
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+
+
+
+
+
+
+<script>
+
+
+        $('document').ready(function(){
+       
+          $('#gps').on('click', function(){
+            navigator.geolocation.getCurrentPosition(onSuccesss, onErrors);
           });
       });
-    </script>
-  </body>
+    
+    
+        function onSuccesss(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                                    'Longitude: '          + position.coords.longitude             + '<br />' +
+                                    'Altitude: '           + position.coords.altitude              + '<br />' +
+                                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                                    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                                    'Heading: '            + position.coords.heading               + '<br />' +
+                                    'Speed: '              + position.coords.speed                 + '<br />' +
+                                    'Timestamp: '          +                                   position.timestamp          + '<br />';
+            }
+        
+            // onError Callback receives a [PositionError](PositionError/positionError.html) object
+            //
+            function onErrors(error) {
+                alert('code: '    + error.code    + '\n' +
+                      'message: ' + error.message + '\n');
+            }
+        
+        
+        
+        
+        </script>
+    
+
+
+    
+    
+
+
+
+
+</body>
+
 </html>

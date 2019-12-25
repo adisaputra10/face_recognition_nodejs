@@ -1,108 +1,27 @@
-var app = {
-  startCameraAbove: function(){
-    CameraPreview.startCamera({x: 50, y: 50, width: 300, height: 300, toBack: false, previewDrag: true, tapPhoto: true});
-  },
-
-  startCameraBelow: function(){
-    CameraPreview.startCamera({x: 50, y: 50, width: 300, height:300, camera: "front", tapPhoto: true, previewDrag: false, toBack: true});
-  },
-
-  stopCamera: function(){
-    CameraPreview.stopCamera();
-  }
-  
-  ,
-  takePicture: function(){
-    CameraPreview.takePicture(function(imgData){
-     // alert(imgData)
-      document.getElementById('originalPicture').src = 'data:image/jpeg;base64,' + imgData;
-       // get_image = $('#originalPicture').attr('src');
-              // alert($('#originalPicture').attr('src'))
-              // $.ajax({
-              //   url : 'http://192.168.100.20:2000/uploadimage',
-              //   // url : 'http://apiext.scafol.id/api/users?user_id=237',
-              //   type : 'POST',
-              //   data : {
-              //     base64image : get_image
-              //   },
-              //   success : function(resp){
-              //     alert('sukses')
-              //   },
-              //   error: function (request, status, error) {
-              //       alert('error');
-              //   }
-              // });
-    });
-
-  },
-  
-
-  switchCamera: function(){
-    CameraPreview.switchCamera();
-  },
-
-  show: function(){
-    CameraPreview.show();
-  },
-
-  hide: function(){
-    CameraPreview.hide();
-  },
-
-  changeColorEffect: function(){
-    var effect = 'none';
-    CameraPreview.setColorEffect(effect);
-  },
-
-  changeFlashMode: function(){
-    var mode = 'none';
-    CameraPreview.setFlashMode(mode);
-  },
-
-  changeZoom: function(){
-    var zoom = '1';
-    document.getElementById('zoomValue').innerHTML = zoom;
-    CameraPreview.setZoom(zoom);
-  },
-
-  changePreviewSize: function(){
-    window.smallPreview = !window.smallPreview;
-    if(window.smallPreview){
-      CameraPreview.setPreviewSize({width: 100, height: 100});
+var login_status = 0;
+var elem_main_nav = $('#main_nav');
+$(document).ready(function () {
+    mainmenu.loadmenu();
+    elem_main_nav.hide();
+    var check_session = JSON.parse(localStorage.getItem('userdata'));
+    if(check_session != null){
+        $('#content_front').hide(); 
+        $('#content2').hide();
+        $('#content1').show();
+        $('#content_front_register').hide();
+        $('#navigation_main').show();
+        elem_main_nav.show();
     }else{
-      CameraPreview.setPreviewSize({width: window.screen.width, height: window.screen.height});
+        $('#content_front').show(); 
+        $('#content_front_register').hide();
+        $('#content2').hide();
+        $('#content1').hide(); 
+        $('#navigation_main').hide();
+        elem_main_nav.hide();
     }
-  },
+    session.login();
+    session.register();
+    session.logout();
 
-  showSupportedPictureSizes: function(){
-    CameraPreview.getSupportedPictureSizes(function(dimensions){
-      dimensions.forEach(function(dimension) {
-        console.log(dimension.width + 'x' + dimension.height);
-      });
-    });
-  },
+});
 
-  init: function(){
-    document.getElementById('startCameraAboveButton').addEventListener('click', this.startCameraAbove, false);
-
-
-    document.getElementById('stopCameraButton').addEventListener('click', this.stopCamera, false);
-    document.getElementById('switchCameraButton').addEventListener('click', this.switchCamera, false);
-   
-    document.getElementById('takePictureButton').addEventListener('click', this.takePicture, false);
-
-
-    
-
-    window.smallPreview = false;
-
-
-    // legacy - not sure if this was supposed to fix anything
-    //window.addEventListener('orientationchange', this.onStopCamera, false);
-  }
-};
-
-
-document.addEventListener('deviceready', function(){	
-  app.init();
-}, false);
