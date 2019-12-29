@@ -1,7 +1,8 @@
 var mainmenu = {
     loadmenu : function(){
-        $('#govceklogo').hide();
+        $('#logo').hide();
         $('#save').hide();
+        $('.search_all').hide();
         $('.goto_createuser').on('click', function(){
             $('#content_front').hide(); 
             $('#content_front_register').show();
@@ -20,46 +21,65 @@ var mainmenu = {
             $('#content2').hide();
             $('#content3').hide();
             $('#content4').hide();
-            $('#govceklogo').hide();
-            $('#save').hide();
-            // $('.search_all').css('visibility', 'visible');
+            $('#logo').hide();
+
         });
 
-        // request form
+        // eptw list
         $('#menu2').on('click', function () {
-            $('#content2').show();
+            $('#list_eptw').show();
+            $('#list_loto').hide();
+            $('#list_risk').hide();
+            $('#detail_eptw').hide();
+            $('#detail_loto').hide();
+            $('#detail_risk').hide();
+
+          
             $('#content1').hide();
             $('#content3').hide();
             $('#content4').hide();
             $('#search_list').hide();
-            // $('.search_all').css('visibility', 'hidden');
             $('.search_all').hide();
-            $('#govceklogo').show();
-            $('#save').show();
+            $('#logo').show();
+
 
         });
 
-        // inpsection schedule request
+        // risk 
         $('#menu3').on('click', function(){
+            $('#list_risk').show();
+            $('#list_eptw').hide();
+            $('#list_loto').hide();
+            $('#detail_eptw').hide();
+            $('#detail_loto').hide();
+            $('#detail_risk').hide();
+
+
             $('#content1').hide();
             $('#content2').hide();
             $('#content4').hide();
-            $('#content3').show();
+            $('#content3').hide();
             $('#search_list').hide();
             $('.search_all').hide();
-            $('#govceklogo').show();
+            $('#logo').show();
             $('#save').hide();
         });
 
-        // master product list
+        // loto
         $('#menu4').on('click', function(){
             $('#content1').hide();
             $('#content2').hide();
             $('#content3').hide();
-            $('#content4').show();
-            $('#search_list').show();
-            $('.search_all').show();
-            $('#govceklogo').hide();
+            $('#detail_eptw').hide();
+            $('#detail_loto').hide();
+            $('#detail_risk').hide();
+
+            $('#list_loto').show();
+            $('#list_eptw').hide();
+            $('#search_list').hide();
+            $('#list_risk').hide();
+            $('.search_all').hide();
+            $('#logo').show();
             $('#save').hide();
         });
     }

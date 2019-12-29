@@ -23,6 +23,7 @@ var session = {
                             $('#content_front').hide(); 
                             $('#content2').hide();
                             $('#content1').show();
+                            $('#menuutama').show();
                             $('#navigation_main').show();
                             console.log(result);
                             let userdata = localStorage.setItem('userdata', JSON.stringify(result));

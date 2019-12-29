@@ -1,7 +1,8 @@
 var mainmenu = {
     loadmenu : function(){
-        $('#govceklogo').hide();
+        $('#logo').hide();
         $('#save').hide();
+        $('.search_all').hide();
         $('.goto_createuser').on('click', function(){
             $('#content_front').hide(); 
             $('#content_front_register').show();
@@ -20,34 +21,35 @@ var mainmenu = {
             $('#content2').hide();
             $('#content3').hide();
             $('#content4').hide();
-            $('#govceklogo').hide();
-            $('#save').hide();
-            // $('.search_all').css('visibility', 'visible');
+            $('#logo').hide();
+
         });
 
         // request form
         $('#menu2').on('click', function () {
-            $('#content2').show();
+            $('#list_eptw').show();
+
+          
             $('#content1').hide();
             $('#content3').hide();
             $('#content4').hide();
             $('#search_list').hide();
-            // $('.search_all').css('visibility', 'hidden');
             $('.search_all').hide();
-            $('#govceklogo').show();
-            $('#save').show();
+            $('#logo').show();
+
 
         });
 
         // inpsection schedule request
         $('#menu3').on('click', function(){
+            $('#list_risk').show();
             $('#content1').hide();
             $('#content2').hide();
             $('#content4').hide();
-            $('#content3').show();
+            $('#content3').hide();
             $('#search_list').hide();
             $('.search_all').hide();
-            $('#govceklogo').show();
+            $('#logo').show();
             $('#save').hide();
         });
 
@@ -56,7 +58,7 @@ var mainmenu = {
             $('#content1').hide();
             $('#content2').hide();
             $('#content3').hide();
-            $('#content4').show();
+            $('#list_loto').show();
             $('#search_list').show();
             $('.search_all').show();
             $('#govceklogo').hide();

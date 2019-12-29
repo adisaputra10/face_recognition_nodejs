@@ -24,6 +24,8 @@
     <button id="simpanfoto">Recognize </button><br>
     <button id="backtomainmenu">Back To Main Menu</button>
 
+    <p id="geolocation">Finding geolocation...</p>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="CameraPreview.js"></script>
     <script type="text/javascript" src="js/camera.js"></script>
@@ -48,10 +50,47 @@
           });
 
           $('#backtomainmenu').on('click', function(){
+
+            //navigator.geolocation.getCurrentPosition(onSuccesss, onErrors);
             CameraPreview.stopCamera();
             window.location.href = "index.html";
           });
       });
     </script>
+
+
+
+
+<script>
+
+    
+    
+    function onSuccesss(position) {
+            var element = document.getElementById('geolocation');
+            element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                                'Longitude: '          + position.coords.longitude             + '<br />' +
+                                'Altitude: '           + position.coords.altitude              + '<br />' +
+                                'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                                'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                                'Heading: '            + position.coords.heading               + '<br />' +
+                                'Speed: '              + position.coords.speed                 + '<br />' +
+                                'Timestamp: '          +                                   position.timestamp          + '<br />';
+        }
+    
+        // onError Callback receives a [PositionError](PositionError/positionError.html) object
+        //
+        function onErrors(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+    
+    
+    
+    
+    </script>
+
+
+
+
   </body>
 </html>
