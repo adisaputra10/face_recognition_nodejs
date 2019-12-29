@@ -100,7 +100,63 @@
         </section>
 
 
+      <!-- --------------------------------------------------------- -->
 
+        <section class="" id="form_loto" style="display: none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card-body">
+                            <br/>
+                      
+                            <h4 class="card-title text-center text-primary">Loto</h4>
+                            <br/>
+                            <br/>
+                            <!-- <form class="form-signin"> -->
+                            <div class="form-label-group">
+                                <label for="inputEmail" class="thisfontblack">Permit No</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="permit_no" class="form-control thisfontblack" placeholder="Permit No">
+                                <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                        required autofocus> -->
+                            </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Lock ID</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="lock_id" class="form-control thisfontblack" placeholder="Lock ID">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Action</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="action" class="form-control thisfontblack" placeholder="Action">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Status</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="status" class="form-control thisfontblack" placeholder="Status">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">User</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="user" class="form-control thisfontblack" placeholder="User">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+                             
+                           
+                            <br />
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="saveloto" style="padding: 10px;">Send
+                            </button>
+                            <hr class="my-4">
+                       
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <!-- --------------------------------------------------------- -->
         <section id="list_eptw" style="display: none;">
@@ -209,7 +265,7 @@
                 <div class="container">
                     <div class="row">
                             <a href="#" class="ist-group-item-action flex-column align-items-start" style="border-bottom: 1px solid #ddd; padding-top:20px; padding-bottom:10px; color : #444">
-                                    <center><button>Add Loto</button></center></a>
+                            <center><button onclick="list_loto.Form()" >Add Loto</button></center></a>
                         <div class="list-group wrapper_list_loto"  style="height: auto;">
                             <!-- list generat via javascript -->
                         </div>

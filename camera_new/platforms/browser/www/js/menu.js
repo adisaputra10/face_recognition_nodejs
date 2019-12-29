@@ -25,9 +25,14 @@ var mainmenu = {
 
         });
 
-        // request form
+        // eptw list
         $('#menu2').on('click', function () {
             $('#list_eptw').show();
+            $('#list_loto').hide();
+            $('#list_risk').hide();
+            $('#detail_eptw').hide();
+            $('#detail_loto').hide();
+            $('#detail_risk').hide();
 
           
             $('#content1').hide();
@@ -40,9 +45,16 @@ var mainmenu = {
 
         });
 
-        // inpsection schedule request
+        // risk 
         $('#menu3').on('click', function(){
             $('#list_risk').show();
+            $('#list_eptw').hide();
+            $('#list_loto').hide();
+            $('#detail_eptw').hide();
+            $('#detail_loto').hide();
+            $('#detail_risk').hide();
+
+
             $('#content1').hide();
             $('#content2').hide();
             $('#content4').hide();
@@ -53,17 +65,29 @@ var mainmenu = {
             $('#save').hide();
         });
 
-        // master product list
+        // loto
         $('#menu4').on('click', function(){
             $('#content1').hide();
             $('#content2').hide();
             $('#content3').hide();
+            $('#detail_eptw').hide();
+            $('#detail_loto').hide();
+            $('#detail_risk').hide();
+
             $('#list_loto').show();
-            $('#search_list').show();
-            $('.search_all').show();
-            $('#govceklogo').hide();
+            $('#list_eptw').hide();
+            $('#search_list').hide();
+            $('#list_risk').hide();
+            $('.search_all').hide();
+            $('#logo').show();
             $('#save').hide();
         });
+
+        $('#form_loto').on('click', function(){
+            $('#form_loto').show();
+            $('#list_loto').hide();
+        });
+
     }
 }
     

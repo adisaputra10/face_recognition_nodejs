@@ -82,6 +82,12 @@ var mainmenu = {
             $('#logo').show();
             $('#save').hide();
         });
+
+        $('#form_loto').on('click', function(){
+            $('#form_loto').show();
+            $('#list_loto').hide();
+        });
+
     }
 }
     

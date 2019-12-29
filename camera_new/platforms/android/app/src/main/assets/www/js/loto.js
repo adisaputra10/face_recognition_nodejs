@@ -66,6 +66,48 @@ var list_loto = {
         }
     });
     }
+    ,
+    Form : function(){
+        $('#list_loto').hide();
+        $('#list_eptw').hide();
+        $('#form_loto').show();
 
+       
+    },
+    Save : function(){
+        n = 0;
+        $('#saveloto').on('click', function () {    
+         
+            var json_object = {
+                'permit_no' : $('#permit_no').val(),
+                'lock_id' : $('#lock_id').val(),
+                'action' : $('#action').val(),
+                'status' : $('#status').val(),
+                'user' : $('#user').val() 
+            };
+            alert(json_object);
+                array.push(json_object);
+                console.log(array);
+                alert(array);
+                $.ajax({
+                    url: "http://34.70.135.128/ptw/api/loto.php?post", // change with service
+                    method: 'POST',
+                    data:json_object,
+                    dataType : 'json',
+                    success: function (result) {
+                        alert(result);
+                        if(result.status == true){
+                        // do something here
+                        }else{
+                        // bla bla bla
+
+                        }
+                    }
+                });
+
+
+           
+        });
+    }
 
 }
