@@ -95,7 +95,12 @@ var list_loto = {
                     data:json_object,
                     dataType : 'json',
                     success: function (result) {
-                        alert(result);
+                        alert("Saved");
+                        list_loto.load();
+                        $('#list_loto').show();
+                        $('#list_eptw').hide();
+                        $('#form_loto').hide();
+
                         if(result.status == true){
                         // do something here
                         }else{

@@ -77,7 +77,7 @@ var list_loto = {
     Save : function(){
         n = 0;
         $('#saveloto').on('click', function () {    
-         
+            var array = [];
             var json_object = {
                 'permit_no' : $('#permit_no').val(),
                 'lock_id' : $('#lock_id').val(),
@@ -85,17 +85,22 @@ var list_loto = {
                 'status' : $('#status').val(),
                 'user' : $('#user').val() 
             };
-            alert(json_object);
+            //alert(json_object);
                 array.push(json_object);
-                console.log(array);
-                alert(array);
+                //console.log(array);
+               // alert(array);
                 $.ajax({
                     url: "http://34.70.135.128/ptw/api/loto.php?post", // change with service
                     method: 'POST',
                     data:json_object,
                     dataType : 'json',
                     success: function (result) {
-                        alert(result);
+                        alert("Saved");
+                        list_loto.load();
+                        $('#list_loto').show();
+                        $('#list_eptw').hide();
+                        $('#form_loto').hide();
+
                         if(result.status == true){
                         // do something here
                         }else{
