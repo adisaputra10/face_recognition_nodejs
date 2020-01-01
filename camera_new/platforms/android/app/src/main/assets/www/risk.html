@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content= "width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>EPTW</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jquery.spin.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Custom styles for this template -->
+  <link href="css/sidebar.css" rel="stylesheet">
+
+
+
+   <!-- Camera-->
+
+
+<!-- Camera-->
+
+
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+    <!-- <div class="spin" data-spin style="margin: 50% auto auto auto; display: none;"/>5 -->
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">EPTW</div>
+      <div class="list-group list-group-flush" id="menuutama">
+            <a href="index.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">Back</a>
+        
+        <a href="#" class="list-group-item list-group-item-action bg-light menu" id="submit_logout">Logout</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="main_nav">
+            <!-- <button class="btn btn-primary" id="menu-toggle">Menu</button><span style="font-weight:bold;">&nbsp;</span> -->
+            <i class="fa fa-bars" id="menu-toggle"></i>
+            <button style="display:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <span id="logoeptw">E-PTW</span>
+          
+          
+
+        </nav>
+        
+      <!-- --------------------------------------------------------- -->
+
+
+
+      <!-- --------------------------------------------------------- -->
+
+        
+        <!-- --------------------------------------------------------- -->
+        <section id="list_eptw" style="display: none;">
+            <div class="container wrapper_list">
+                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Eptw List</li>
+                    </ol>
+                </nav>
+                <div class="container">
+                    <div class="row">
+                        <div class="list-group wrapper_list_eptw"  style="height: auto;">
+                            <!-- list generat via javascript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+           <!-- --------------------------------------------------------- -->
+
+
+           <section id="detail_eptw" style="display: none;">
+            <div class="container wrapper_list">
+                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Eptw</li>
+                    </ol>
+                </nav>
+                <div class="container">
+                    <div class="row">
+                        <div class="list-group wrapper_detail_eptw"  style="height: auto;">
+                            <!-- list generat via javascript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+           <!-- --------------------------------------------------------- -->
+
+
+           <section id="detail_loto" style="display: none;">
+            <div class="container wrapper_list">
+                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Loto</li>
+                    </ol>
+                </nav>
+                <div class="container">
+                    <div class="row">
+                        <div class="list-group wrapper_detail_loto"  style="height: auto;">
+                            <!-- list generat via javascript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+           <!-- --------------------------------------------------------- -->
+
+
+           <section id="list_menu" style="display: none;">
+            <div class="container wrapper_list">
+                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+
+                                <button  id="menusiterecord">Site Record</button>
+                                <button  id="menuaddasses">Risk Assesment</button>
+
+
+                        </li>
+                    </ol>
+                 
+                </nav>
+              
+            </div>
+        </section>
+
+            <!-- --------------------------------------------------------- -->
+
+
+        <section id="detail_risk" style="display: none;">
+       
+                <div class="container wrapper_list">
+                        <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Log (Site Record) </li>
+                            </ol>
+                        </nav>
+                        <div class="container">
+                            <div class="row">
+                                <div class="list-group wrapper_detail_site"  style="height: auto;">
+                                    <!-- list generat via javascript -->
+                                </div>
+                            </div>
+                        </div>
+                
+
+
+                            
+                    </div>
+
+
+        </section>
+
+
+        <section id="detail_risk_a" style="display: none;">
+       
+                <div class="container wrapper_list">
+                       
+                        <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">Risk Assessment</li>
+                                </ol>
+                            </nav>
+
+
+                            <div class="container">
+                                    <div class="row">
+                                            <a href="#" class="ist-group-item-action flex-column align-items-start" style="border-bottom: 1px solid #ddd; padding-top:20px; padding-bottom:10px; color : #444">
+                                            <center><button onclick="list_risk.Form()" >Add Risk Assesment</button></center></a>
+                                        <div class="list-group wrapper_detail_risk"  style="height: auto;">
+                                            <!-- list generat via javascript -->
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+
+
+        </section>
+
+
+
+      <!-- --------------------------------------------------------- -->
+
+      <section class="" id="form_risk" style="display: none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card-body">
+                            <br/>
+                      
+                            <h4 class="card-title text-center text-primary">Risk Assesment</h4>
+                            <br/>
+                            <br/>
+                            <!-- <form class="form-signin"> -->
+                            <div class="form-label-group">
+                                <label for="inputEmail" class="thisfontblack">Permit No</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="permit_no" readonly=true  class="form-control thisfontblack" placeholder="Permit No">
+                                <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                        required autofocus> -->
+                            </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Risk</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="risk" class="form-control thisfontblack" placeholder="Risk">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Source</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="source" class="form-control thisfontblack" placeholder="Source">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Precaution</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="precaution" class="form-control thisfontblack" placeholder="Precaution">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Equipment</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="equipment" class="form-control thisfontblack" placeholder="Equipment">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                            </div>
+                             
+                           
+                            <br />
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="saverisk" style="padding: 10px;">Save
+                            </button>
+                            <hr class="my-4">
+                       
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    
+
+        <!-- --------------------------------------------------------- -->
+
+
+    </div>
+  </div>
+  <!-- /#wrapper -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/list_eptw.js"></script>
+    <script src="js/risk.js"></script>
+    <script src="js/loto.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery.spin.js"></script>
+ 
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        $('.menu').click(function(){
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+
+<script>
+
+
+        $('document').ready(function(){
+            $('#list_menu').show();
+          
+
+            list_risk.Detail_Site(localStorage.getItem("permit_no"));
+            list_risk.Detail(localStorage.getItem("permit_no"));
+            list_risk.Save();
+
+            document.getElementById('permit_no').value= localStorage.getItem("permit_no");
+      
+       
+          $('#gps').on('click', function(){
+            navigator.geolocation.getCurrentPosition(onSuccesss, onErrors);
+          });
+
+
+
+          $('#menusiterecord').on('click', function(){
+            
+            $('#detail_risk_a').hide();
+            $('#form_risk').hide();
+            $('#detail_risk').show();
+
+          });
+
+
+          $('#menuaddasses').on('click', function(){
+           
+             
+            $('#detail_risk').hide();
+            $('#form_risk').hide();
+            $('#detail_risk_a').show();
+          });
+
+          
+
+
+
+      });
+    
+    
+        function onSuccesss(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                                    'Longitude: '          + position.coords.longitude             + '<br />' +
+                                    'Altitude: '           + position.coords.altitude              + '<br />' +
+                                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                                    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                                    'Heading: '            + position.coords.heading               + '<br />' +
+                                    'Speed: '              + position.coords.speed                 + '<br />' +
+                                    'Timestamp: '          +                                   position.timestamp          + '<br />';
+            }
+        
+            // onError Callback receives a [PositionError](PositionError/positionError.html) object
+            //
+            function onErrors(error) {
+                alert('code: '    + error.code    + '\n' +
+                      'message: ' + error.message + '\n');
+            }
+        
+        
+        
+        
+        </script>
+    
+
+
+    
+    
+
+
+
+
+</body>
+
+</html>

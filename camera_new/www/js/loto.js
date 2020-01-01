@@ -76,6 +76,7 @@ var list_loto = {
     },
     Save : function(){
         n = 0;
+        
         $('#saveloto').on('click', function () {    
             var array = [];
             var json_object = {

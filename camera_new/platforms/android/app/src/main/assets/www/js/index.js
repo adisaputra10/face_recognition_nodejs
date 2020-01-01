@@ -31,7 +31,8 @@ $(document).ready(function () {
     list_eptw.load();
     list_loto.load();
     list_risk.load();
-    list_loto.Save()
+    list_loto.Save();
+   
 
 });
 

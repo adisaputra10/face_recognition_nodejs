@@ -23,14 +23,19 @@
     </div>
     <button id="simpanfoto">Recognize </button><br>
     <button id="backtomainmenu">Back To Main Menu</button>
+    <button id="tomainmenu">Go To Risk Assesment</button>
 
-    <p id="geolocation">Finding geolocation...</p>
+   
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="CameraPreview.js"></script>
     <script type="text/javascript" src="js/camera.js"></script>
     <script>
+      
+
       $('document').ready(function(){
+        $('#tomainmenu').hide();
+
           $('#simpanfoto').on('click', function(){
               get_image = $('#originalPicture').attr('src');
               $.ajax({
@@ -40,12 +45,29 @@
                   base64image : get_image
                 },
                 success : function(resp){
-                  alert('sukses ')
+                  alert('success ');
+
+                  $('#backtomainmenu').hide();
+                  $('#tomainmenu').show();
+
+               
+
 
                 },
                 error: function (request, status, error) {
-                    alert('error ');
+                    alert('Try Again ');
+                 // window.location.href = "risk.html";
+                //  $('#backtomainmenu').hide();
+                 // $('#tomainmenu').show();
+                  // send to server
+                
+                         
+                  
+
+
+                  
                 }
+
               });
           });
 
@@ -55,6 +77,52 @@
             CameraPreview.stopCamera();
             window.location.href = "index.html";
           });
+
+          $('#tomainmenu').on('click', function(){
+
+            navigator.geolocation.getCurrentPosition(onSuccesss, onErrors);
+            var permit_no = localStorage.getItem("permit_no");
+            var issuer = localStorage.getItem("issuer");
+            var requester = localStorage.getItem("requester");
+            var gps_lat = localStorage.getItem("lat");
+            var start_complete = localStorage.getItem("start_complete");
+            var gsp_lon = localStorage.getItem("lon");
+            var face = localStorage.getItem("face");
+            
+         
+
+            $.ajax({
+                    url: "http://34.70.135.128/ptw/api/site.php?post", // change with service
+                    method: 'POST',
+                    data: {
+                        'permit_no' : permit_no ,
+                         'issuer' : issuer,
+                         'requester' : requester,
+                         'gps_lat' : gps_lat,
+                         'start_complete' : start_complete,
+                         'gps_lon' : gsp_lon,
+                         'face_error' : face
+                    },
+                    dataType : 'json',
+                    success: function (result) {
+                   
+                  
+                         CameraPreview.stopCamera();
+                         window.location.href = "risk.html";
+                        
+
+                    }
+                });
+
+
+
+
+
+            });
+
+
+
+
       });
     </script>
 
@@ -67,14 +135,12 @@
     
     function onSuccesss(position) {
             var element = document.getElementById('geolocation');
-            element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                                'Longitude: '          + position.coords.longitude             + '<br />' +
-                                'Altitude: '           + position.coords.altitude              + '<br />' +
-                                'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                                'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                                'Heading: '            + position.coords.heading               + '<br />' +
-                                'Speed: '              + position.coords.speed                 + '<br />' +
-                                'Timestamp: '          +                                   position.timestamp          + '<br />';
+            
+            localStorage.setItem('lat', "lat123");
+            localStorage.setItem('lon', position.coords.longitude );
+
+           alert("latt")          
+
         }
     
         // onError Callback receives a [PositionError](PositionError/positionError.html) object

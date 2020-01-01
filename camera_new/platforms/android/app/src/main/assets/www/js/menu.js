@@ -73,6 +73,7 @@ var mainmenu = {
             $('#detail_eptw').hide();
             $('#detail_loto').hide();
             $('#detail_risk').hide();
+            
 
             $('#list_loto').show();
             $('#list_eptw').hide();

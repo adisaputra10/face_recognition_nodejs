@@ -41,8 +41,26 @@ var list_eptw = {
                 var elem = $('.wrapper_detail_eptw');
                 var i = 0;
                 for (i; i < result.data.length; i++) {
+
+
+                    localStorage.removeItem("permit_no");
+                    localStorage.removeItem("issuer");
+                    localStorage.removeItem("requester");
+                    localStorage.removeItem("lat");
+                    localStorage.removeItem("start");
+                    localStorage.removeItem("lon");
+                    localStorage.removeItem("face");
+
+                    
+                    localStorage.setItem('permit_no', result.data[i].permit_no);
+                    localStorage.setItem('issuer', result.data[i].issuer);
+                    localStorage.setItem('requester', localStorage.getItem("name"));
+                    localStorage.setItem('start_complete', "start" );
+                    localStorage.setItem('face', "0" );
+                
+
                     list = '<a href="home.html" class="ist-group-item-action flex-column align-items-start" style="border-bottom: 1px solid #ddd; padding-top:20px; padding-bottom:10px; color : #444">\
-                    <center><button>Face Recognition</button></center></a><br>     <div class="d-flex w-100 justify-content-between ">\
+                    <center><button>Risk Assesment</button></center></a><br>     <div class="d-flex w-100 justify-content-between ">\
                                     <h5 class="mb-2 h5 thisfontblack font-weight-bold">Permit No</h5>  '+result.data[i].permit_no+'\
                                     </div ><br>\
                                     <div class="d-flex w-100 justify-content-between ">\

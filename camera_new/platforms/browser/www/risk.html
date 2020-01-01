@@ -38,10 +38,8 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">EPTW</div>
       <div class="list-group list-group-flush" id="menuutama">
-            <a href="index.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">Home</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu2">EPTW List</a>
-      
-          <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu4">LOTO</a>
+            <a href="index.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">Back</a>
+        
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="submit_logout">Logout</a>
       </div>
     </div>
@@ -277,13 +275,23 @@
 
 
         <section id="content1" style="display: none;">
-            <div class="container wrapper_list">
-            <br><br><br>  <br><br><br>  <br><br><br>  <br><br><br> <br>     
-      
-            <button id="gps">gps</button>
-            <p id="geolocation">Finding geolocation...</p>
+       
+                <div class="container wrapper_list">
+                        <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Eptw List</li>
+                            </ol>
+                        </nav>
+                        <div class="container">
+                            <div class="row">
+                                <div class="list-group wrapper_list_eptw"  style="height: auto;">
+                                    <!-- list generat via javascript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
+
         </section>
 
 

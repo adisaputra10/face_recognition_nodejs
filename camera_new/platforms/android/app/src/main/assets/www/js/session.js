@@ -11,14 +11,15 @@ var session = {
             var b = check_input($('#inputPassword'));
             if(a && b){
                 $.ajax({
-                    url: "http://dev.govcek.com/index.php/master_api/login", // change with service
+                    url: "http://34.70.135.128/ptw/api/user.php?login", // change with service
                     method: 'POST',
                     data: {
-                        'username' : $('#inputEmail').val()
+                        'username' : $('#inputEmail').val() , 'password' : $('#inputPassword').val()  
                     },
                     dataType : 'json',
                     success: function (result) {
-                        if(result.status == true){
+                    //    alert(result.data[0].username);
+                        if(result.data[0].username != "failed"){
                             elem_main_nav.show();
                             $('#content_front').hide(); 
                             $('#content2').hide();
@@ -27,6 +28,8 @@ var session = {
                             $('#navigation_main').show();
                             console.log(result);
                             let userdata = localStorage.setItem('userdata', JSON.stringify(result));
+                            let name = localStorage.setItem('name', result.data[0].name);
+                            let username = localStorage.setItem('username', result.data[0].username );
                         }else{
                             console.log('failed');
                             Swal.fire({

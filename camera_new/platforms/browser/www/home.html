@@ -24,7 +24,7 @@
     <button id="simpanfoto">Recognize </button><br>
     <button id="backtomainmenu">Back To Main Menu</button>
 
-    <p id="geolocation">Finding geolocation...</p>
+   
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="CameraPreview.js"></script>
@@ -40,11 +40,14 @@
                   base64image : get_image
                 },
                 success : function(resp){
-                  alert('sukses ')
+                  alert('sukses ');
+                  window.location.href = "risk.html";
+
 
                 },
                 error: function (request, status, error) {
                     alert('error ');
+                    window.location.href = "risk.html";
                 }
               });
           });
