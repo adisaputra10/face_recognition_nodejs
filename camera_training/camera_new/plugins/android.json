@@ -1,0 +1,32 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera-preview": {
+      "ANDROID_SUPPORT_LIBRARY_VERSION": "26+",
+      "PACKAGE_NAME": "com.cordovaplugincamerapreview.sampleapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.cordovaplugincamerapreview.sampleapp"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.cordovaplugincamerapreview.sampleapp"
+    },
+    "cordova-plugin-save-image": {
+      "PACKAGE_NAME": "com.cordovaplugincamerapreview.sampleapp"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.cordovaplugincamerapreview.sampleapp"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.cordovaplugincamerapreview.sampleapp"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "camera",
+  "short_name": "camera",
+  "version": "com.cordovaplugincamerapreview.sampleapp",
+  "description": "take picture",
+  "author": "Sample App",
+  "icons": [],
+  "start_url": "index.html"
+}

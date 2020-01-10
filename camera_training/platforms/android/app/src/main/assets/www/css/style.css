@@ -1,0 +1,53 @@
+.navbar-ios{
+    background: #fff !important;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.fixed-bottom{
+    height: 48px !important;
+}
+
+.menu {
+    color : #007bff;
+    font-size: 14px;
+}
+
+
+.thisfont{
+    font-size: 14px;
+    color: #007bff;
+}
+
+.thisfontblack{
+    font-size: 14px !important;
+}
+
+.list-group{
+    width: 100%;    
+}
+
+.search_input{
+    width: 85%;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    padding-left: 5px;
+    border-radius: 2px;
+}
+
+.wrapper_list{
+    margin-bottom: 15px;
+}
+
+::placeholder{
+    color : #ddd;
+    font-size: 14px;
+}
+
+.wrapper_list_one, .wrapper_list_two{
+    position: relative;
+    top: -20px;
+    overflow-y: scroll;
+    max-height: 530px;
+}
+

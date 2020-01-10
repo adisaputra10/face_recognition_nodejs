@@ -197,7 +197,52 @@
 
 
 
-      <!-- --------------------------------------------------------- -->
+        <section class="" id="form_riskubahstatus" style="display: none;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div class="card-body">
+                                <br/>
+                          
+                                <h4 class="card-title text-center text-primary">Change Status</h4>
+    
+                                <br/>
+                                <br/>
+                                <!-- <form class="form-signin"> -->
+                                <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">ID Site Record</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="id_site_record" readonly=true  class="form-control thisfontblack" placeholder="Permit No">
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                            required autofocus> -->
+                                </div>
+
+                                <div class="form-label-group">
+                                        <label for="inputEmail" class="thisfontblack">Status</label>
+                                        <select class="form-control " id="newstatus">
+                                            <option value="Complete">Complete</option>
+                                            <option value="Start">Start</option>
+                                            </select>
+    
+    
+                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                                required autofocus> -->
+                                </div>
+                                 
+                               
+                                <br />
+                                <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="changestatus" style="padding: 10px;">Save
+                                </button>
+                                <hr class="my-4">
+                           
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        <!-- --------------------------------------------------------- -->
 
       <section class="" id="form_risk" style="display: none;">
             <div class="container">
@@ -207,6 +252,27 @@
                             <br/>
                       
                             <h4 class="card-title text-center text-primary">Risk Assesment</h4>
+
+                            <div class="form-label-group">
+
+                                <table> <tr>
+                            <td>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id=""  class="form-control thisfontblack" placeholder="">
+                             
+                            </td>
+                            
+                            <td>
+                                    <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="" style="padding: 10px;">Search
+                                        </button>
+                                
+                            </td>
+
+                                </tr>
+                             </table>
+                            
+                            </div>
+
+
                             <br/>
                             <br/>
                             <!-- <form class="form-signin"> -->
@@ -237,8 +303,12 @@
                             </div>
                             <div class="form-label-group">
                                     <label for="inputEmail" class="thisfontblack">Equipment</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="equipment" class="form-control thisfontblack" placeholder="Equipment">
-                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                    <select class="form-control list_equipment" id="equipment">
+                                        
+                                        </select>
+
+
+                                <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                             required autofocus> -->
                             </div>
                              
@@ -305,6 +375,7 @@
             list_risk.Detail_Site(localStorage.getItem("permit_no"));
             list_risk.Detail(localStorage.getItem("permit_no"));
             list_risk.Save();
+            list_risk.list_equipment(localStorage.getItem("permit_no"));
 
             document.getElementById('permit_no').value= localStorage.getItem("permit_no");
       
@@ -320,6 +391,7 @@
             $('#detail_risk_a').hide();
             $('#form_risk').hide();
             $('#detail_risk').show();
+            $('#form_riskubahstatus').hide();
 
           });
 
@@ -330,6 +402,7 @@
             $('#detail_risk').hide();
             $('#form_risk').hide();
             $('#detail_risk_a').show();
+            $('#form_riskubahstatus').hide();
           });
 
           

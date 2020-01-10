@@ -21,6 +21,9 @@ var mainmenu = {
             $('#content2').hide();
             $('#content3').hide();
             $('#content4').hide();
+            $('#edit_loto').hide(); 
+
+            $('#form_loto').hide();
             $('#logo').hide();
 
         });
@@ -33,6 +36,9 @@ var mainmenu = {
             $('#detail_eptw').hide();
             $('#detail_loto').hide();
             $('#detail_risk').hide();
+            $('#edit_loto').hide(); 
+
+            $('#form_loto').hide();
 
           
             $('#content1').hide();
@@ -54,6 +60,9 @@ var mainmenu = {
             $('#detail_loto').hide();
             $('#detail_risk').hide();
 
+            $('#form_loto').hide();
+            $('#edit_loto').hide(); 
+
 
             $('#content1').hide();
             $('#content2').hide();
@@ -73,6 +82,8 @@ var mainmenu = {
             $('#detail_eptw').hide();
             $('#detail_loto').hide();
             $('#detail_risk').hide();
+            $('#form_loto').hide();
+            $('#edit_loto').hide(); 
             
 
             $('#list_loto').show();

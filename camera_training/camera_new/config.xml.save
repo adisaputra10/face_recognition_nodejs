@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<widget id="com.cordovaplugincamerapreview.sampleapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+    <name>camera</name>
+    <description>take picture</description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">Sample App</author>
+    
+    <content src="index.html" />
+    <access origin="http://192.168.100.20:2000/uploadimage" />
+
+    <plugin name="cordova-plugin-camera-preview" spec="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git" />
+   <platform name="android">
+    <preference name="android-minSdkVersion" value="14" />
+
+    <preference name="android-targetSdkVersion" value="28" />
+
+    </platform>
+</widget>
+

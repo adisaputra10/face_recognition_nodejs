@@ -115,34 +115,53 @@
                             <!-- <form class="form-signin"> -->
                             <div class="form-label-group">
                                 <label for="inputEmail" class="thisfontblack">Permit No</label>
-                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="permit_no" class="form-control thisfontblack" placeholder="Permit No">
-                                <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                        required autofocus> -->
+                                <select class="form-control list_permit_no" id="permit_no">
+                                        
+                                </select>
+                               
                             </div>
+
+                            <div class="form-label-group">
+                                <label for="inputEmail" class="thisfontblack">Equip ID</label>
+                                <select class="form-control list_equipment" id="equip_id">
+                               </select>
+                           
+                        </div>
                             <div class="form-label-group">
                                     <label for="inputEmail" class="thisfontblack">Lock ID</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="lock_id" class="form-control thisfontblack" placeholder="Lock ID">
-                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                            required autofocus> -->
+                                    <select class="form-control list_lockid" id="lock_id">
+                                   </select>
+                               
                             </div>
 
                             <div class="form-label-group">
                                     <label for="inputEmail" class="thisfontblack">Action</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="action" class="form-control thisfontblack" placeholder="Action">
-                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                            required autofocus> -->
-                            </div>
+                                    <select class="form-control " id="action">
+                                        <option value="Lock">Lock</option>
+                                        <option value="Unlock">Unlock</option>
+                                    </select>
+                             </div>
+
                             <div class="form-label-group">
                                     <label for="inputEmail" class="thisfontblack">Status</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="status" class="form-control thisfontblack" placeholder="Status">
+                                    <select class="form-control" id="status">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+
+
                                     <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                             required autofocus> -->
                             </div>
                             <div class="form-label-group">
                                     <label for="inputEmail" class="thisfontblack">User</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="user" class="form-control thisfontblack" placeholder="User">
-                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                            required autofocus> -->
+
+                                    <select class="form-control list_user" id="user">
+                                      
+                                     
+                                    </select>
+                                    
+                                     
                             </div>
                              
                            
@@ -159,12 +178,110 @@
         </section>
         
         <!-- --------------------------------------------------------- -->
+
+        <section class="" id="edit_loto" style="display: none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card-body">
+                            <br/>
+                      
+                            <h4 class="card-title text-center text-primary">Update Loto</h4>
+                            <br/>
+                            <br/>
+                            <!-- <form class="form-signin"> -->
+                            <div class="form-label-group">
+                                <label for="inputEmail" class="thisfontblack">ID Loto</label>
+                             
+                                <input type="text" id="id_loto" class="form-control thisfontblack"  readonly>         
+                            </div>
+
+
+                            <div class="form-label-group">
+                                <label for="inputEmail" class="thisfontblack">Permit No</label>
+                                <select class="form-control list_permit_no_e" id="permit_no">
+                                        
+                                </select>
+                               
+                            </div>
+
+                            <div class="form-label-group">
+                                <label for="inputEmail" class="thisfontblack">Equip ID</label>
+                                <select class="form-control list_equipment_e" id="equip_id">
+                               </select>  
+                        </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Lock ID</label>
+                                    <select class="form-control list_lockid_e" id="lock_id">
+                                   </select>
+                               
+                            </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Action</label>
+                                    <select class="form-control " id="action">
+                                        <option value="Lock">Lock</option>
+                                        <option value="Unlock">Unlock</option>
+                                    </select>
+                             </div>
+                             
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Status</label>
+                                    <select class="form-control" id="status">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                            </div>
+                            
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">User</label>
+
+                                    <select class="form-control list_user_e" id="user">
+                                      
+                                     
+                                    </select>
+                                    
+                                     
+                            </div>
+                             
+                           
+                            <br />
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="saveloto" style="padding: 10px;">Save
+                            </button>
+                            <hr class="my-4">
+                       
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- --------------------------------------------------------- -->
+
+
         <section id="list_eptw" style="display: none;">
             <div class="container wrapper_list">
                 <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Eptw List</li>
                     </ol>
+
+                    <table> <tr>
+                            <td>
+                                    <input required type="text" id="eptwsearch"  class="form-control thisfontblack" placeholder="Permit No">
+                             
+                            </td>
+                            
+                            <td>
+                                    <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  onclick="list_eptw.search()"   id="button" style="padding: 10px;">Search
+                                        </button>
+                                
+                            </td>
+
+                                </tr>
+                    </table>
+
+
                 </nav>
                 <div class="container">
                     <div class="row">
@@ -203,6 +320,8 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Loto</li>
                     </ol>
+
+                
                 </nav>
                 <div class="container">
                     <div class="row">
@@ -261,6 +380,23 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Loto</li>
                     </ol>
+
+
+                    <table> <tr>
+                            <td>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="lotosearch"  class="form-control thisfontblack" placeholder="">
+                             
+                            </td>
+                            
+                            <td>
+                                    <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack" onclick="list_loto.search()"  id="button" style="padding: 10px;">Search
+                                        </button>
+                                
+                            </td>
+
+                                </tr>
+                    </table>
+                        
                 </nav>
                 <div class="container">
                     <div class="row">

@@ -32,6 +32,7 @@ $(document).ready(function () {
     list_loto.load();
     list_risk.load();
     list_loto.Save();
+    list_loto.list_select();
    
 
 });
