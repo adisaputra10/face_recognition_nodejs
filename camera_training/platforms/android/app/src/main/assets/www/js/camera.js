@@ -15,6 +15,7 @@ var app = {
     takePicture: function(){
       CameraPreview.takePicture(function(imgData){
         document.getElementById('originalPicture').src = 'data:image/png;base64,' + imgData;
+        CameraPreview.stopCamera();
       });
   
     },

@@ -157,7 +157,7 @@ app.post("/uploadimage", async (req, res, next) => {
     let date = new Date();
     let extension = mime.extension(type);
     //let fileName =  "image_"+date.getTime()+ "." + extension;
-    let fileName =  req.body.username + "." + extension;
+    let fileName =  req.body.username + ".png";
     console.log('username ' + req.body.username);
     try {
       fs.writeFileSync("./temp/uploads/" + fileName, imageBuffer, 'utf8');

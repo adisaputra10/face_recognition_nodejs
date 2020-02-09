@@ -213,7 +213,9 @@
             list_risk.list_equipment(localStorage.getItem("permit_no"));
 
             document.getElementById('idimage').value= localStorage.getItem("idimage");
+            document.getElementById('username').value= localStorage.getItem("username_s");
             localStorage.removeItem("idimage");
+            localStorage.removeItem("username_s");
       
        
           $('#gps').on('click', function(){
@@ -225,12 +227,9 @@
           $('#saveuser').on('click', function(){
 
                   
-    
-
-
 
                     $.ajax({
-                            url: "http://34.70.135.128/ptw/api/user.php?registrasi", // change with service
+                            url: "http://eptw.webzz.id/edmin/api/user.php?registrasi", // change with service
                             method: 'POST',
                             data: {
                                 'idimage' : $('#idimage').val() ,
@@ -243,15 +242,14 @@
                             },
                             dataType : 'json',
                             success: function (result) {
-                        
-                        
-                                //CameraPreview.stopCamera();
                                 alert("Saved")
                                 window.location.href = "index.html";
-                                
-
                             }
                         });
+
+
+
+
 
 
 

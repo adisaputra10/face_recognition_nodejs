@@ -21,6 +21,7 @@
     <div class="pictures">
       <img id="originalPicture" width="200"/>
     </div>
+    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="inputUsername" class="form-control thisfontblack" placeholder="Username"><br>
     <button id="simpanfoto">Training </button><br>
     <button id="backtomainmenu">Back To Main Menu</button>
     <button id="tomainmenu">Go To Risk Assesment</button>
@@ -40,9 +41,13 @@
         $('#tomainmenu').hide();
         $('#adduser').hide();
           $('#simpanfoto').on('click', function(){
-
+             var username_s =$('#inputUsername').val()
               var id = Math.random().toString(36).substr(2, 9);
               get_image = $('#originalPicture').attr('src');
+
+              if(username_s != ""){
+                
+             
               $.ajax({
                 //  url : 'http://34.70.135.128:2000/uploadimage'
                 url : 'http://34.70.135.128/uploadimage',
@@ -55,6 +60,7 @@
 
 
                 localStorage.setItem('idimage', id);
+                localStorage.setItem('username_s', username_s);
                 //alert("muncul Form Input User");
                 CameraPreview.stopCamera();
          
@@ -66,6 +72,7 @@
                 error: function (request, status, error) {
                   
                 localStorage.setItem('idimage', id);
+                localStorage.setItem('username_s', username_s);
                 // alert("muncul Form Input User");
 
                  CameraPreview.stopCamera();
@@ -75,6 +82,15 @@
                 }
 
               });
+
+            }else{
+                alert("Username empty");
+              }
+
+
+
+
+
           });
 
           $('#backtomainmenu').on('click', function(){
@@ -96,29 +112,7 @@
             var face = localStorage.getItem("face");
             
          
-
-            $.ajax({
-                    url: "http://34.70.135.128/ptw/api/user.php?registrasi", // change with service
-                    method: 'POST',
-                    data: {
-                        'permit_no' : permit_no ,
-                         'issuer' : issuer,
-                         'requester' : requester,
-                         'gps_lat' : gps_lat,
-                         'start_complete' : start_complete,
-                         'gps_lon' : gsp_lon,
-                         'face_error' : face
-                    },
-                    dataType : 'json',
-                    success: function (result) {
-                   
-                  
-                         CameraPreview.stopCamera();
-                         window.location.href = "risk.html";
-                        
-
-                    }
-                });
+ 
 
 
 
