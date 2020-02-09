@@ -140,7 +140,7 @@ $('#className').on('input', (arguments) => {
   var classList=['Linkin', 'Michael', 'Sucre', 'Tbag','nishant'];
   
   if(classList.indexOf($('#className').val())!==-1)
-    $('#train').removeAttr('disabled');
+    $('#train').attr('disabled','');
   else
     $('#train').attr('disabled','');
   

@@ -83,10 +83,12 @@ router.get('/',async(req,res)=>{
 
 router.get('/mobile/:className',async(req,res)=>{
 
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  
+ 
+
   try {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     const {className}=req.params;
     console.log(`Testing ${className}`);   
