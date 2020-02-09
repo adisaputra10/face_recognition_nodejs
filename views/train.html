@@ -140,9 +140,9 @@ $('#className').on('input', (arguments) => {
   var classList=['Linkin', 'Michael', 'Sucre', 'Tbag','nishant'];
   
   if(classList.indexOf($('#className').val())!==-1)
-    $('#train').attr('disabled','');
+    $('#train').removeAttr('disabled');
   else
-    $('#train').attr('disabled','');
+    $('#train').removeAttr('disabled');
   
 })
 socket.on('UploadSuccess',function(msg){
