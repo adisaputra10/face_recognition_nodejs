@@ -42,6 +42,7 @@
        
       
           <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu4">User</a>
+          <a href="testing.html" class="list-group-item list-group-item-action bg-light menu" id="menu4">Testing Face Recognition</a>
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="submit_logout">Logout</a>
       </div>
     </div>
@@ -423,16 +424,8 @@
 
 
 
-
-        <section id="content1" style="display: none;">
-            <div class="container wrapper_list">
-            <br><br><br>  <br><br><br>  <br><br><br>  <br><br><br> <br>     
-      
-            <button id="gps">gps</button>
-            <p id="geolocation">Finding geolocation...</p>
-
-            </div>
-        </section>
+          <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="inputUsername" class="form-control thisfontblack" placeholder="Username"><br>
+          <button id="simpanfoto">Training </button><br>
 
 
     
@@ -484,12 +477,39 @@
 
 
 
-
-
-
-
-
         $('document').ready(function(){
+
+
+
+
+            $('#simpanfoto').on('click', function(){
+             var username_s =$('#inputUsername').val();
+              var id = Math.random().toString(36).substr(2, 9);
+              get_image = $('#originalPicture').attr('src');
+
+              if(username_s != ""){
+                
+             
+                $.ajax({url: 'http://eptw.webzz.id:2000/recognize/mobile/'+$('#inputUsername').val(), success: function(result){
+                                 setTimeout(function(){     console.log(result); alert("data")
+                                },3000);
+                                 hasil="success"
+                                  },
+                              error: function(errorMsg){
+                                  
+                                  alert("Failed To Train, Check Your Connection")
+                             
+                               }
+                            });
+
+
+                
+
+            }else{
+                alert("Username empty");
+              }
+
+          });
 
 
 

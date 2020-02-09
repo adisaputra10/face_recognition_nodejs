@@ -21,16 +21,12 @@
     <div class="pictures">
       <img id="originalPicture" width="200"/>
     </div>
-    <button id="simpanfoto">Re-Training </button><br>
+    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="inputUsername" class="form-control thisfontblack" placeholder="Username"><br>
+    <button id="simpanfoto">Training </button><br>
     <button id="backtomainmenu">Back To Main Menu</button>
     <button id="tomainmenu">Go To Risk Assesment</button>
 
    
-
-
-
-
-
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="CameraPreview.js"></script>
@@ -45,40 +41,36 @@
         $('#tomainmenu').hide();
         $('#adduser').hide();
           $('#simpanfoto').on('click', function(){
-
+             var username_s =$('#inputUsername').val();
               var id = Math.random().toString(36).substr(2, 9);
               get_image = $('#originalPicture').attr('src');
-              $.ajax({
-                //  url : 'http://34.70.135.128:2000/uploadimage'
-                url : 'http://34.70.135.128/uploadimage',
-                type : 'POST',
-                data : { 
-                  base64image : get_image
-                },
-                success : function(resp){
-                  alert('success ');
+
+              if(username_s != ""){
+                
+             
+                $.ajax({url: 'http://eptw.webzz.id:2000/recognize/mobile/'+$('#inputUsername').val(), success: function(result){
+                                 setTimeout(function(){ alert(result.className[0]); alert("data")
+                                },3000);
+                                 hasil="success"
+                                  },
+                              error: function(errorMsg){
+                                  
+                                  alert("Failed To Train, Check Your Connection")
+                             
+                               }
+                            });
 
 
-                //localStorage.setItem('idimage', id);
-                //alert("muncul Form Input User");
-                CameraPreview.stopCamera();
-         
-                window.location.href = "index.html";
-        
+                
+
+            }else{
+                alert("Username empty");
+              }
 
 
-                },
-                error: function (request, status, error) {
-            
 
-                alert('success ');
-                 CameraPreview.stopCamera();
-                 window.location.href = "index.html";
-           
-                  
-                }
 
-              });
+
           });
 
           $('#backtomainmenu').on('click', function(){
@@ -100,29 +92,7 @@
             var face = localStorage.getItem("face");
             
          
-
-            $.ajax({
-                    url: "http://eptw.webzz.id/web/api/user.php?registrasi", // change with service
-                    method: 'POST',
-                    data: {
-                        'permit_no' : permit_no ,
-                         'issuer' : issuer,
-                         'requester' : requester,
-                         'gps_lat' : gps_lat,
-                         'start_complete' : start_complete,
-                         'gps_lon' : gsp_lon,
-                         'face_error' : face
-                    },
-                    dataType : 'json',
-                    success: function (result) {
-                   
-                  
-                         CameraPreview.stopCamera();
-                         window.location.href = "risk.html";
-                        
-
-                    }
-                });
+ 
 
 
 

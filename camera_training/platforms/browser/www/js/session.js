@@ -11,7 +11,7 @@ var session = {
             var b = check_input($('#inputPassword'));
             if(a && b){
                 $.ajax({
-                    url: "http://34.70.135.128/ptw/api/user.php?login", // change with service
+                    url: "http://eptw.webzz.id/web/api/user.php?login", // change with service
                     method: 'POST',
                     data: {
                         'username' : $('#inputEmail').val() , 'password' : $('#inputPassword').val()  
