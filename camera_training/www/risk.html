@@ -229,20 +229,54 @@
                          var hasil=null;
 
                          $.ajax({url: 'http://eptw.webzz.id:2000/training/mobile/'+$('#username').val(), success: function(result){
-                                 setTimeout(function(){ hasil="success"},3000);
+                                 setTimeout(function(){ callback(result,'success')
+                                },3000);
                                  hasil="success"
                                   },
                               error: function(errorMsg){
-                                  hasil="failed";
+                                  
+                                  alert("Failed To Train, Check Your Connection")
                              
                                }
                             });
 
 
+                            function callback(result,status){    
+                                    if(status==='success'){    
+                                      $.ajax({
+                                            url: "http://eptw.webzz.id/web/api/user.php?registrasi", // change with service
+                                            method: 'POST',
+                                            data: {
+                                                'idimage' : $('#idimage').val() ,
+                                                'name' : $('#name').val(),
+                                                'email' : $('#email').val(),
+                                                'username' : $('#username').val(),
+                                                'password' : $('#password').val(),
+                                                'status' : $('#status').val(),
+                                                'role' : $('#role').val() 
+                                            },
+                                            dataType : 'json',
+                                            success: function (result) {
+                                                alert("Saved")
+                                                window.location.href = "index.html";
+                                            }
+                                         });
 
+
+                                    }
+                                    else{
+                                       alert("Failed To Train, Check Your Connection")
+                                 }
+                            }
+
+
+                  
+        
+        
+
+/*
             if(hasil == "success"){
-
-                    $.ajax({
+                  $.ajax({
                             url: "http://eptw.webzz.id/web/api/user.php?registrasi", // change with service
                             method: 'POST',
                             data: {
@@ -266,8 +300,11 @@
 
                     }
 
-
+*/
                         
+
+
+
 
 
             });
