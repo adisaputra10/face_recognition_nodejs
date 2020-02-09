@@ -41,7 +41,7 @@
         $('#tomainmenu').hide();
         $('#adduser').hide();
           $('#simpanfoto').on('click', function(){
-             var username_s =$('#inputUsername').val()
+             var username_s =$('#inputUsername').val();
               var id = Math.random().toString(36).substr(2, 9);
               get_image = $('#originalPicture').attr('src');
 
@@ -53,7 +53,8 @@
                 url : 'http://eptw.webzz.id:2000/uploadimage',
                 type : 'POST',
                 data : { 
-                  base64image : get_image
+                  base64image : get_image,
+                  username: $('#inputUsername').val()
                 },
                 success : function(resp){
                   alert('success ');
