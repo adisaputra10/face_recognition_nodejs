@@ -227,12 +227,9 @@
           $('#saveuser').on('click', function(){
 
                   
-    
-
-
 
                     $.ajax({
-                            url: "http://34.70.135.128/ptw/api/user.php?registrasi", // change with service
+                            url: "http://eptw.webzz.id/web/api/user.php?registrasi", // change with service
                             method: 'POST',
                             data: {
                                 'idimage' : $('#idimage').val() ,
@@ -245,15 +242,14 @@
                             },
                             dataType : 'json',
                             success: function (result) {
-                        
-                        
-                                //CameraPreview.stopCamera();
                                 alert("Saved")
                                 window.location.href = "index.html";
-                                
-
                             }
                         });
+
+
+
+
 
 
 

@@ -46,13 +46,11 @@
               get_image = $('#originalPicture').attr('src');
 
               if(username_s != ""){
-                alert("tidak kosong");
-              }else{
-                alert("kosong");
-              }
+                
+             
               $.ajax({
                 //  url : 'http://34.70.135.128:2000/uploadimage'
-                url : 'http://34.70.135.128/uploadimage',
+                url : 'http://eptw.webzz.id:2000/uploadimage',
                 type : 'POST',
                 data : { 
                   base64image : get_image
@@ -84,6 +82,15 @@
                 }
 
               });
+
+            }else{
+                alert("Username empty");
+              }
+
+
+
+
+
           });
 
           $('#backtomainmenu').on('click', function(){
@@ -105,29 +112,7 @@
             var face = localStorage.getItem("face");
             
          
-
-            $.ajax({
-                    url: "http://34.70.135.128/ptw/api/user.php?registrasi", // change with service
-                    method: 'POST',
-                    data: {
-                        'permit_no' : permit_no ,
-                         'issuer' : issuer,
-                         'requester' : requester,
-                         'gps_lat' : gps_lat,
-                         'start_complete' : start_complete,
-                         'gps_lon' : gsp_lon,
-                         'face_error' : face
-                    },
-                    dataType : 'json',
-                    success: function (result) {
-                   
-                  
-                         CameraPreview.stopCamera();
-                         window.location.href = "risk.html";
-                        
-
-                    }
-                });
+ 
 
 
 

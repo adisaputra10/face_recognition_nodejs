@@ -1,7 +1,7 @@
 var list_eptw = {
     load : function(){
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -37,7 +37,7 @@ var list_eptw = {
         //alert(item)
 
             $.ajax({
-                url: "http://34.70.135.128/ptw/api/eptw.php?search="+item, // change with service
+                url: "http://eptw.webzz.id/web/api/eptw.php?search="+item, // change with service
                 method: 'get',
                 dataType : 'json',
                 success: function (result) {
@@ -73,7 +73,7 @@ var list_eptw = {
         $('#list_eptw').hide();
         $('#detail_eptw').show();
        $.ajax({
-        url: "http://34.70.135.128/ptw/api/eptw.php?detail=" +item, // change with service
+        url: "http://eptw.webzz.id/web/api/eptw.php?detail=" +item, // change with service
         method: 'get',
         dataType : 'json',
         success: function (result) {
