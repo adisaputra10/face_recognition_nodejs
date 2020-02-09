@@ -1,7 +1,7 @@
 var list_risk = {
     load : function(){
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/risk.php", // change with service
+            url: "http://eptw.webzz.id/web/api/risk.php", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -54,7 +54,7 @@ var list_risk = {
                 array.push(json_object);
                 
                 $.ajax({
-                    url: "http://34.70.135.128/ptw/api/risk.php?post", // change with service
+                    url: "http://eptw.webzz.id/web/api/risk.php?post", // change with service
                     method: 'POST',
                     data:json_object,
                     dataType : 'json',
@@ -79,7 +79,7 @@ var list_risk = {
     
         var equip_form;
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php?detail=" + item, // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php?detail=" + item, // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -89,7 +89,7 @@ var list_risk = {
         });
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php?equip", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php?equip", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -111,7 +111,7 @@ var list_risk = {
     Detail : function(item){
     
        $.ajax({
-        url: "http://34.70.135.128/ptw/api/risk.php?detail=" +item, // change with service
+        url: "http://eptw.webzz.id/web/api/risk.php?detail=" +item, // change with service
         method: 'get',
         dataType : 'json',
         success: function (result) {
@@ -167,7 +167,7 @@ var list_risk = {
                 array.push(json_object);
                 
                 $.ajax({
-                    url: "http://34.70.135.128/ptw/api/site.php?status", // change with service
+                    url: "http://eptw.webzz.id/web/api/site.php?status", // change with service
                     method: 'POST',
                     data:json_object,
                     dataType : 'json',
@@ -194,7 +194,7 @@ var list_risk = {
        // alert(item);
         //alert("Data ");
        $.ajax({
-        url: "http://34.70.135.128/ptw/api/site.php?detail=" +item, // change with service
+        url: "http://eptw.webzz.id/web/api/site.php?detail=" +item, // change with service
         method: 'get',
         dataType : 'json',
         success: function (result) {

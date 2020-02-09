@@ -53,7 +53,7 @@ var session = {
             var g = check_input($('#reg_conf_password'));
             
             if(a && b && c && d && e && f && g){
-                alert('udah bleh submit');
+                
                 var json_object = {
                     "firstname" : $('#reg_firstname'),
                     "lastname" : $('#reg_lastname'),

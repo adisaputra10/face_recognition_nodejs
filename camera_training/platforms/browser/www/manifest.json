@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "camera",
-  "short_name": "camera",
+  "name": "Training User",
+  "short_name": "Training User",
   "version": "com.cordovaplugincamerapreview.sampleapp",
-  "description": "take picture",
-  "author": "Sample App",
+  "description": "Training User",
+  "author": "Training User",
   "icons": [],
   "start_url": "index.html"
 }

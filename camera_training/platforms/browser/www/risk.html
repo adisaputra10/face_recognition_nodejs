@@ -23,7 +23,7 @@
 
    <!-- Camera-->
 
-
+ 
 <!-- Camera-->
 
 
@@ -65,44 +65,11 @@
 
       <!-- --------------------------------------------------------- -->
 
-        
-        <!-- --------------------------------------------------------- -->
-        <section id="list_eptw" style="display: none;">
-            <div class="container wrapper_list">
-                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Eptw List</li>
-                    </ol>
-                </nav>
-                <div class="container">
-                    <div class="row">
-                        <div class="list-group wrapper_list_eptw"  style="height: auto;">
-                            <!-- list generat via javascript -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
            <!-- --------------------------------------------------------- -->
 
 
-           <section id="detail_eptw" style="display: none;">
-            <div class="container wrapper_list">
-                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Eptw</li>
-                    </ol>
-                </nav>
-                <div class="container">
-                    <div class="row">
-                        <div class="list-group wrapper_detail_eptw"  style="height: auto;">
-                            <!-- list generat via javascript -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-           <!-- --------------------------------------------------------- -->
+         
 
 
            <section id="detail_loto" style="display: none;">
@@ -121,200 +88,68 @@
                 </div>
             </div>
         </section>
-           <!-- --------------------------------------------------------- -->
-
-
-           <section id="list_menu" style="display: none;">
-            <div class="container wrapper_list">
-                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-
-                                <button  id="menusiterecord">Site Record</button>
-                                <button  id="menuaddasses">Risk Assesment</button>
-
-
-                        </li>
-                    </ol>
-                 
-                </nav>
-              
-            </div>
-        </section>
-
-            <!-- --------------------------------------------------------- -->
-
-
-        <section id="detail_risk" style="display: none;">
-       
-                <div class="container wrapper_list">
-                        <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">Log (Site Record) </li>
-                            </ol>
-                        </nav>
-                        <div class="container">
-                            <div class="row">
-                                <div class="list-group wrapper_detail_site"  style="height: auto;">
-                                    <!-- list generat via javascript -->
-                                </div>
-                            </div>
-                        </div>
-                
-
-
-                            
-                    </div>
-
-
-        </section>
-
-
-        <section id="detail_risk_a" style="display: none;">
-       
-                <div class="container wrapper_list">
-                       
-                        <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">Risk Assessment</li>
-                                </ol>
-                            </nav>
-
-
-                            <div class="container">
-                                    <div class="row">
-                                            <a href="#" class="ist-group-item-action flex-column align-items-start" style="border-bottom: 1px solid #ddd; padding-top:20px; padding-bottom:10px; color : #444">
-                                            <center><button onclick="list_risk.Form()" >Add Risk Assesment</button></center></a>
-                                        <div class="list-group wrapper_detail_risk"  style="height: auto;">
-                                            <!-- list generat via javascript -->
-                                        </div>
-                                    </div>
-                                </div>
-                    </div>
-
-
-        </section>
-
-
-
-        <section class="" id="form_riskubahstatus" style="display: none;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                            <div class="card-body">
-                                <br/>
-                          
-                                <h4 class="card-title text-center text-primary">Change Status</h4>
-    
-                                <br/>
-                                <br/>
-                                <!-- <form class="form-signin"> -->
-                                <div class="form-label-group">
-                                    <label for="inputEmail" class="thisfontblack">ID Site Record</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="id_site_record" readonly=true  class="form-control thisfontblack" placeholder="Permit No">
-                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                            required autofocus> -->
-                                </div>
-
-                                <div class="form-label-group">
-                                        <label for="inputEmail" class="thisfontblack">Status</label>
-                                        <select class="form-control " id="newstatus">
-                                            <option value="Complete">Complete</option>
-                                            <option value="Start">Start</option>
-                                            </select>
-    
-    
-                                    <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                                required autofocus> -->
-                                </div>
-                                 
-                               
-                                <br />
-                                <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="changestatus" style="padding: 10px;">Save
-                                </button>
-                                <hr class="my-4">
-                           
-                                <!-- </form> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+ 
 
         <!-- --------------------------------------------------------- -->
 
-      <section class="" id="form_risk" style="display: none;">
+      <section class="" id="form_user" style="display: none;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                         <div class="card-body">
                             <br/>
                       
-                            <h4 class="card-title text-center text-primary">Risk Assesment</h4>
-
-                            <div class="form-label-group">
-
-                                <table> <tr>
-                            <td>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="permit_no"  class="form-control thisfontblack" placeholder="">
-                             
-                            </td>
-                            
-                            <td>
-                                    <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="saverisk" style="padding: 10px;">Search
-                                        </button>
-                                
-                            </td>
-
-                                </tr>
-                             </table>
-                            
-                            </div>
+                            <h4 class="card-title text-center text-primary">Add User</h4>
 
 
                             <br/>
                             <br/>
                             <!-- <form class="form-signin"> -->
                             <div class="form-label-group">
-                                <label for="inputEmail" class="thisfontblack">Permit No</label>
-                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="permit_no" readonly=true  class="form-control thisfontblack" placeholder="Permit No">
+                                <label for="inputEmail" class="thisfontblack">ID Image</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="idimage" readonly=true  class="form-control thisfontblack" placeholder="Permit No">
                                 <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                         required autofocus> -->
                             </div>
                             <div class="form-label-group">
-                                    <label for="inputEmail" class="thisfontblack">Risk</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="risk" class="form-control thisfontblack" placeholder="Risk">
+                                    <label for="inputEmail" class="thisfontblack">Name</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="name" class="form-control thisfontblack" placeholder="Name">
                                     <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                             required autofocus> -->
                             </div>
 
                             <div class="form-label-group">
-                                    <label for="inputEmail" class="thisfontblack">Source</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="source" class="form-control thisfontblack" placeholder="Source">
+                                    <label for="inputEmail" class="thisfontblack">Username</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="username" class="form-control thisfontblack" placeholder="Username">
                                     <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                             required autofocus> -->
                             </div>
                             <div class="form-label-group">
-                                    <label for="inputEmail" class="thisfontblack">Precaution</label>
-                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="precaution" class="form-control thisfontblack" placeholder="Precaution">
+                                    <label for="inputEmail" class="thisfontblack">Password</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="password" id="password" class="form-control thisfontblack" placeholder="Password">
                                     <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                             required autofocus> -->
                             </div>
                             <div class="form-label-group">
-                                    <label for="inputEmail" class="thisfontblack">Equipment</label>
-                                    <select class="form-control list_equipment" id="equipment">
-                                        
-                                        </select>
+                                    <label for="inputEmail" class="thisfontblack">Email</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="email" class="form-control thisfontblack" placeholder="Email">
+                        </div>
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Status</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="status" class="form-control thisfontblack" placeholder="Status">
+                        </div>
 
 
-                                <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                            required autofocus> -->
+                            <div class="form-label-group">
+                                    <label for="inputEmail" class="thisfontblack">Role</label>
+                                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="role" class="form-control thisfontblack" placeholder="Role">
+
                             </div>
+
                              
                            
                             <br />
-                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="saverisk" style="padding: 10px;">Save
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack"  id="saveuser" style="padding: 10px;">Save
                             </button>
                             <hr class="my-4">
                        
@@ -369,7 +204,7 @@
 
 
         $('document').ready(function(){
-            $('#list_menu').show();
+            $('#form_user').show();
           
 
             list_risk.Detail_Site(localStorage.getItem("permit_no"));
@@ -377,7 +212,8 @@
             list_risk.Save();
             list_risk.list_equipment(localStorage.getItem("permit_no"));
 
-            document.getElementById('permit_no').value= localStorage.getItem("permit_no");
+            document.getElementById('idimage').value= localStorage.getItem("idimage");
+            localStorage.removeItem("idimage");
       
        
           $('#gps').on('click', function(){
@@ -385,25 +221,43 @@
           });
 
 
+ 
+          $('#saveuser').on('click', function(){
 
-          $('#menusiterecord').on('click', function(){
-            
-            $('#detail_risk_a').hide();
-            $('#form_risk').hide();
-            $('#detail_risk').show();
-            $('#form_riskubahstatus').hide();
-
-          });
+                  
+    
 
 
-          $('#menuaddasses').on('click', function(){
-           
-             
-            $('#detail_risk').hide();
-            $('#form_risk').hide();
-            $('#detail_risk_a').show();
-            $('#form_riskubahstatus').hide();
-          });
+
+                    $.ajax({
+                            url: "http://34.70.135.128/ptw/api/user.php?registrasi", // change with service
+                            method: 'POST',
+                            data: {
+                                'idimage' : $('#idimage').val() ,
+                                'name' : $('#name').val(),
+                                'email' : $('#email').val(),
+                                'username' : $('#username').val(),
+                                'password' : $('#password').val(),
+                                'status' : $('#status').val(),
+                                'role' : $('#role').val() 
+                            },
+                            dataType : 'json',
+                            success: function (result) {
+                        
+                        
+                                //CameraPreview.stopCamera();
+                                alert("Saved")
+                                window.location.href = "index.html";
+                                
+
+                            }
+                        });
+
+
+
+
+
+            });
 
           
 

@@ -40,24 +40,21 @@
               get_image = $('#originalPicture').attr('src');
               $.ajax({
                 //  url : 'http://34.70.135.128:2000/uploadimage'
-                url : 'http://34.70.135.128/uploadimage',
+                url : 'http://eptw.webzz.id:2000/uploadimage',
                 type : 'POST',
                 data : { 
                   base64image : get_image
                 },
                 success : function(resp){
                   alert('success ');
-
                   $('#backtomainmenu').hide();
                   $('#tomainmenu').show();
-
-               
 
 
                 },
                 error: function (request, status, error) {
                   
-                  //  alert('Try Again ');
+                    alert('Try Again ' + resp);
                  // window.location.href = "risk.html";
                 //  $('#backtomainmenu').hide();
                  // $('#tomainmenu').show();

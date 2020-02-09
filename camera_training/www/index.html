@@ -39,9 +39,9 @@
       <div class="sidebar-heading">EPTW</div>
       <div class="list-group list-group-flush" id="menuutama">
             <a href="index.html" class="list-group-item list-group-item-action bg-light menu" id="menu1">Home</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu2">EPTW List</a>
+       
       
-          <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu4">LOTO</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu4">User</a>
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="submit_logout">Logout</a>
       </div>
     </div>
@@ -318,7 +318,7 @@
             <div class="container wrapper_list">
                 <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Loto</li>
+                        <li class="breadcrumb-item">List User</li>
                     </ol>
 
                 
@@ -378,7 +378,7 @@
             <div class="container wrapper_list">
                 <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Loto</li>
+                        <li class="breadcrumb-item">List User</li>
                     </ol>
 
 
@@ -401,7 +401,7 @@
                 <div class="container">
                     <div class="row">
                             <a href="#" class="ist-group-item-action flex-column align-items-start" style="border-bottom: 1px solid #ddd; padding-top:20px; padding-bottom:10px; color : #444">
-                            <center><button onclick="list_loto.Form()" >Add Loto</button></center></a>
+                            <center><button onclick="list_loto.Form()" >Add User</button></center></a>
                         <div class="list-group wrapper_list_loto"  style="height: auto;">
                             <!-- list generat via javascript -->
                         </div>
@@ -410,6 +410,18 @@
             </div>
         </section>
            <!-- --------------------------------------------------------- -->
+
+
+
+
+
+           <section id="edit_user" style="display: none;">
+       
+           </section>
+
+          <!-- --------------------------------------------------------- -->
+
+
 
 
         <section id="content1" style="display: none;">
@@ -470,10 +482,30 @@
 <script>
 
 
+
+
+
+
+
+
+
         $('document').ready(function(){
+
+
+
+  
+
+
+
+
+
+
+
+
+
        
           $('#gps').on('click', function(){
-            navigator.geolocation.getCurrentPosition(onSuccesss, onErrors);
+alert("hiihih")
           });
       });
     

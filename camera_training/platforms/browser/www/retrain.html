@@ -1,0 +1,172 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Camera</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="controls">
+      <div class="block">
+        <button id="startCameraAboveButton">Start Camera</button>
+        <button id="stopCameraButton">Stop Camera</button>
+      </div>
+      <div class="block">
+        <button id="takePictureButton">Take Picture</button>
+        <button id="switchCameraButton">Switch Camera</button>
+      </div>
+      
+    </div>
+    <div class="pictures">
+      <img id="originalPicture" width="200"/>
+    </div>
+    <button id="simpanfoto">Re-Training </button><br>
+    <button id="backtomainmenu">Back To Main Menu</button>
+    <button id="tomainmenu">Go To Risk Assesment</button>
+
+   
+
+
+
+
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="CameraPreview.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
+    <script>
+      
+
+      $('document').ready(function(){
+  
+       
+    
+        $('#tomainmenu').hide();
+        $('#adduser').hide();
+          $('#simpanfoto').on('click', function(){
+
+              var id = Math.random().toString(36).substr(2, 9);
+              get_image = $('#originalPicture').attr('src');
+              $.ajax({
+                //  url : 'http://34.70.135.128:2000/uploadimage'
+                url : 'http://34.70.135.128/uploadimage',
+                type : 'POST',
+                data : { 
+                  base64image : get_image
+                },
+                success : function(resp){
+                  alert('success ');
+
+
+                //localStorage.setItem('idimage', id);
+                //alert("muncul Form Input User");
+                CameraPreview.stopCamera();
+         
+                window.location.href = "index.html";
+        
+
+
+                },
+                error: function (request, status, error) {
+            
+
+                alert('success ');
+                 CameraPreview.stopCamera();
+                 window.location.href = "index.html";
+           
+                  
+                }
+
+              });
+          });
+
+          $('#backtomainmenu').on('click', function(){
+
+            //navigator.geolocation.getCurrentPosition(onSuccesss, onErrors);
+            CameraPreview.stopCamera();
+            window.location.href = "index.html";
+          });
+
+          $('#tomainmenu').on('click', function(){
+
+            navigator.geolocation.getCurrentPosition(onSuccesss, onErrors);
+            var permit_no = localStorage.getItem("permit_no");
+            var issuer = localStorage.getItem("issuer");
+            var requester = localStorage.getItem("requester");
+            var gps_lat = localStorage.getItem("lat");
+            var start_complete = localStorage.getItem("start_complete");
+            var gsp_lon = localStorage.getItem("lon");
+            var face = localStorage.getItem("face");
+            
+         
+
+            $.ajax({
+                    url: "http://34.70.135.128/ptw/api/user.php?registrasi", // change with service
+                    method: 'POST',
+                    data: {
+                        'permit_no' : permit_no ,
+                         'issuer' : issuer,
+                         'requester' : requester,
+                         'gps_lat' : gps_lat,
+                         'start_complete' : start_complete,
+                         'gps_lon' : gsp_lon,
+                         'face_error' : face
+                    },
+                    dataType : 'json',
+                    success: function (result) {
+                   
+                  
+                         CameraPreview.stopCamera();
+                         window.location.href = "risk.html";
+                        
+
+                    }
+                });
+
+
+
+
+
+            });
+
+
+
+
+      });
+    </script>
+
+
+
+
+<script>
+
+    
+    
+    function onSuccesss(position) {
+            var element = document.getElementById('geolocation');
+            
+            localStorage.setItem('lat', "lat123");
+            localStorage.setItem('lon', position.coords.longitude );
+
+           alert("latt")          
+
+        }
+    
+        // onError Callback receives a [PositionError](PositionError/positionError.html) object
+        //
+        function onErrors(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+    
+    
+    
+    
+    </script>
+
+
+
+
+  </body>
+</html>

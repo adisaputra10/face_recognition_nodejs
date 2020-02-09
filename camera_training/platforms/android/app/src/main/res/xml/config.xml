@@ -22,9 +22,9 @@
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
-    <name>camera</name>
-    <description>take picture</description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">Sample App</author>
+    <name>Training User</name>
+    <description>Training User</description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">   Training User</author>
     <content src="index.html" />
     <access origin="*" />
     <access origin="https://onlinebelajar.net" />

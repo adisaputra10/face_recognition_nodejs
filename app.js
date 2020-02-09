@@ -14,9 +14,9 @@ var shell = require('shelljs');
 //
 //create database connection
 const conn = mysql.createConnection({
-  host: 'localhost',
+  host: 'mysql',
   user: 'root',
-  password: 'password123',
+  password: '1qazxsw2',
   database: 'nodejs'
 });
  
@@ -108,6 +108,7 @@ app.post("/uploadfile", upload.array('photo', 12), (req, res, next) => {
   }
 });
 
+/*
 app.post("/uploadimage", async (req, res, next) => {
     // to declare some path to store your converted image
     var matches = req.body.base64image.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
@@ -134,7 +135,7 @@ app.post("/uploadimage", async (req, res, next) => {
     }
     }
 );
-
+*/
 
 // upload base 64 controller uploadimage from mobile
 app.post("/uploadimage", async (req, res, next) => {
@@ -155,7 +156,8 @@ app.post("/uploadimage", async (req, res, next) => {
     let type = decodedImg.type;
     let date = new Date();
     let extension = mime.extension(type);
-    let fileName =  "image_"+date.getTime()+ "." + extension;
+    //let fileName =  "image_"+date.getTime()+ "." + extension;
+    let fileName =  req.body.username + "." + extension;
     try {
       fs.writeFileSync("./temp/uploads/" + fileName, imageBuffer, 'utf8');
       return res.send({"status":"success"});

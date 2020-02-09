@@ -1,7 +1,7 @@
 var list_loto = {
     load : function(){
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/loto.php", // change with service
+            url: "http://eptw.webzz.id/web/api/loto.php", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -43,7 +43,7 @@ var list_loto = {
       //  alert(item)
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/loto.php?search="+item, // change with service
+            url: "http://eptw.webzz.id/web/api/loto.php?search="+item, // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -82,7 +82,7 @@ var list_loto = {
      
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php?lock", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php?lock", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -100,7 +100,7 @@ var list_loto = {
         });
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -119,7 +119,7 @@ var list_loto = {
 
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php?equip", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php?equip", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -150,7 +150,7 @@ var list_loto = {
         var id_loto,permit_no,lock_id,equip_id,status,user;
         document.getElementById('id_loto').value= item;
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/loto.php?detail="+item, // change with service
+            url: "http://eptw.webzz.id/web/api/loto.php?detail="+item, // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -176,7 +176,7 @@ var list_loto = {
 
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php?lock", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php?lock", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -194,7 +194,7 @@ var list_loto = {
         });
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -213,7 +213,7 @@ var list_loto = {
 
 
         $.ajax({
-            url: "http://34.70.135.128/ptw/api/eptw.php?equip", // change with service
+            url: "http://eptw.webzz.id/web/api/eptw.php?equip", // change with service
             method: 'get',
             dataType : 'json',
             success: function (result) {
@@ -243,7 +243,7 @@ var list_loto = {
         $('#list_eptw').hide();
         $('#detail_loto').show();
        $.ajax({
-        url: "http://34.70.135.128/ptw/api/loto.php?detail=" +item, // change with service
+        url: "http://eptw.webzz.id/web/api/loto.php?detail=" +item, // change with service
         method: 'get',
         dataType : 'json',
         success: function (result) {
@@ -304,7 +304,7 @@ var list_loto = {
                 //console.log(array);
                // alert(array);
                 $.ajax({
-                    url: "http://34.70.135.128/ptw/api/loto.php?status", // change with service
+                    url: "http://eptw.webzz.id/web/api/loto.php?status", // change with service
                     method: 'POST',
                     data:json_object,
                     dataType : 'json',
@@ -349,7 +349,7 @@ var list_loto = {
                 //console.log(array);
                // alert(array);
                 $.ajax({
-                    url: "http://34.70.135.128/ptw/api/loto.php?post", // change with service
+                    url: "http://eptw.webzz.id/web/api/loto.php?post", // change with service
                     method: 'POST',
                     data:json_object,
                     dataType : 'json',
