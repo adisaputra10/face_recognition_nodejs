@@ -424,8 +424,11 @@
 
 
 
-          <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="inputUsername" class="form-control thisfontblack" placeholder="Username"><br>
-          <button id="simpanfoto">Training </button><br>
+          <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" value="admin" id="inputUsername" class="form-control thisfontblack" placeholder="Username"><br>
+          <button id="simpanfoto">Training </button><br><br>
+          <section id="hasil_training" >
+       
+        </section>
 
 
     
@@ -490,17 +493,16 @@
               if(username_s != ""){
                 
              
-                $.ajax({url: 'http://eptw.webzz.id:2000/recognize/mobile/'+$('#inputUsername').val(), success: function(result){
+                         $.ajax({url: 'http://eptw.webzz.id:2000/recognize/mobile/'+$('#inputUsername').val(), success: function(result){
                                  setTimeout(function(){   
                                      
                                     result.sort(compare);
                                     console.log(result);
                                     for(var i=0;i<result.length;i++){
-
-                                        console.log(result[0].className);console.log(Math.round((1-result[i].distance)*100));
+                                     //   console.log(result[0].className);console.log(Math.round((1-result[i].distance)*100));
                                     }
-                                    
-                                  //  console.log(result[0].className);console.log(result[0].distance);
+                                    document.getElementById('hasil_training').innerHTML = " Hasil Prediksi :" + Math.round((1-result[0].distance)*100) + " %" ;
+                                   // console.log(result[0].className);console.log(Math.round((1-result[0].distance)*100));
                                 },3000);
                                  hasil="success"
                                   },

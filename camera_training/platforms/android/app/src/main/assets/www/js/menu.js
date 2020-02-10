@@ -22,7 +22,6 @@ var mainmenu = {
             $('#content3').hide();
             $('#content4').hide();
             $('#edit_loto').hide(); 
-
             $('#form_loto').hide();
             $('#logo').hide();
 
@@ -39,7 +38,6 @@ var mainmenu = {
             $('#edit_loto').hide(); 
 
             $('#form_loto').hide();
-
           
             $('#content1').hide();
             $('#content3').hide();
