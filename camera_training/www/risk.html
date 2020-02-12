@@ -228,14 +228,14 @@
 
                          var hasil=null;
 
-                         $.ajax({url: 'http://eptw.webzz.id:2000/training/mobile/'+$('#username').val(), success: function(result){
+                         $.ajax({url: 'http://eptw.webzz.id:2000/training/mobile/test/'+$('#username').val(), success: function(result){
                                  setTimeout(function(){ callback(result,'success')
-                                },3000);
+                                },100);
                                  hasil="success"
                                   },
                               error: function(errorMsg){
-                                  
-                                  alert("Failed To Train, Check Your Connection")
+                                callback(result,'success')
+                                 // alert("Failed To Train, Check Your Connection")
                              
                                }
                             });

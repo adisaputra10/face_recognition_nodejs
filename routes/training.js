@@ -70,6 +70,11 @@ router.get('/class/:className',async(req,res)=>{
 
 
 
+
+
+
+
+
 router.get('/mobile/:className',async(req,res)=>{
   try {
     const {className}=req.params;
@@ -116,6 +121,23 @@ router.get('/mobile/:className',async(req,res)=>{
     Save Our Trained Data
     */
     fs.writeFileSync('model.json', JSON.stringify(modelState));    
+    
+    res.status(200).json({Trained:'success'});
+  } catch (e) {
+    console.log(e);
+    res.status(400).send({ error:e.message });
+  }     
+});
+
+
+
+
+
+router.get('/mobile/:className',async(req,res)=>{
+  try {
+    const {className}=req.params;
+    console.log(`Train  tes ${className}`);   
+      
     
     res.status(200).json({Trained:'success'});
   } catch (e) {
