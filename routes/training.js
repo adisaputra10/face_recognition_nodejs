@@ -133,8 +133,10 @@ router.get('/mobile/:className',async(req,res)=>{
 
 
 
-router.get('/mobile/:className',async(req,res)=>{
+router.get('/mobile/test/:className',async(req,res)=>{
   try {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const {className}=req.params;
     console.log(`Train  tes ${className}`);   
       

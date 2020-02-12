@@ -227,8 +227,8 @@
           $('#saveuser').on('click', function(){
 
                          var hasil=null;
-
-                         $.ajax({url: 'http://eptw.webzz.id:2000/training/mobile/test/'+$('#username').val(), success: function(result){
+//'+$('#username').val()
+                         $.ajax({url: 'http://eptw.webzz.id:2000/training/mobile/test', success: function(result){
                                  setTimeout(function(){ callback(result,'success')
                                 },100);
                                  hasil="success"
